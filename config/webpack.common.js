@@ -17,7 +17,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env', '@babel/preset-typescript'],
           },
         },
       },
@@ -29,5 +29,10 @@ module.exports = {
       '@': path.resolve(__ROOT, 'src'),
     },
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: '한강설비',
+      template: 'src/index.html',
+    }),
+  ],
 };
