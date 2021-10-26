@@ -1,0 +1,14 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "target": "es5",
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
