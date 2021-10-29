@@ -1,19 +1,29 @@
 import { dom } from '@/utils/babel';
 import { Test, Node } from '@/components';
 
-/** @jsx dom */
+interface State {
+  displayTest: boolean;
+}
 
-export default class App extends Node {
+/** @jsx dom */
+export default class App extends Node<unknown, State> {
   constructor() {
     super();
-    this.$target = document.createElement('div');
-    this.render();
+    this.state = {
+      displayTest: true,
+    };
+  }
+
+  onClick() {
+    this.setState({ displayTest: !this.state.displayTest });
+    console.log(this.state);
   }
 
   templete() {
     return (
       <div style={{ color: 'blue', 'background-color': 'white' }} width="12px">
-        <Test width="1px">123</Test>
+        {this.state.displayTest && <Test width="1px">Test</Test>}
+        <button onclick={this.onClick.bind(this)}>Test삭제/보이기</button>
       </div>
     );
   }
