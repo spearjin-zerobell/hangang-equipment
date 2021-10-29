@@ -4,7 +4,7 @@ const __ROOT = process.cwd();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
@@ -17,14 +17,24 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-typescript'],
+            presets: [
+              '@babel/preset-typescript',
+              [
+                '@babel/preset-env',
+                {
+                  corejs: 3,
+                  useBuiltIns: 'usage',
+                },
+              ],
+            ],
+            plugins: ['@babel/plugin-transform-react-jsx'],
           },
         },
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@': path.resolve(__ROOT, 'src'),
     },

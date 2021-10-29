@@ -18,6 +18,7 @@
   "homepage": "https://github.com/yeongjong310/hangang-equipment#readme",
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
@@ -37,5 +38,8 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "core-js": "^3.19.0"
   }
 }

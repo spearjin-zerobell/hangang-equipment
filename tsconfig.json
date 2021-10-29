@@ -1,12 +1,14 @@
 {
-  "include": ["src/**/*"],
+  // "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "jsx": "preserve",
     "baseUrl": ".",
     "sourceMap": true,
     "noImplicitAny": true,
     "target": "es5",
     "moduleResolution": "node",
+    "declaration": true,
     "paths": {
       "@/*": ["src/*"]
     }
