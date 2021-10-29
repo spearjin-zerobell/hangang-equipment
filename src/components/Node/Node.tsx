@@ -2,29 +2,25 @@ import { dom } from '@/utils/babel';
 
 /** @jsx dom */
 export default class Node<Props = unknown, State = unknown> {
-  $target: HTMLElement;
+  $dom: HTMLElement;
   props?: Props & { children?: HTMLElement[] };
-  $state?: State;
+  state?: State;
 
   constructor(props?: Props & { children?: HTMLElement[] }) {
     this.props = props;
   }
 
-  get target() {
-    return this.$target;
-  }
-
   setState(newState: State) {
-    this.$state = { ...this.$state, ...newState };
-    this.render();
-  }
-
-  templete() {
-    return document.createDocumentFragment();
+    this.state = { ...this.state, ...newState };
+    this.$dom.replaceWith(this.render());
   }
 
   render() {
-    this.$target.innerHTML = '';
-    this.$target.appendChild(this.templete());
+    this.$dom = this.templete();
+    return this.$dom;
+  }
+
+  templete(): HTMLElement {
+    throw new Error('Method not implemented.');
   }
 }

@@ -3,7 +3,7 @@ export interface propsType {
 }
 
 export const dom = (
-  name: string | (new (props: propsType) => { $target: HTMLElement }),
+  name: string | (new (props: propsType) => { render: () => HTMLElement }),
   props: propsType,
   ...children: HTMLElement[]
 ) => {
@@ -12,7 +12,7 @@ export const dom = (
     name;
     const Component = new name({ ...props, children });
 
-    return Component.$target;
+    return Component.render();
   }
 
   // intrinsic Elements
