@@ -2,7 +2,7 @@ import { dom } from '@/utils/babel';
 
 /** @jsx dom */
 export default class Node<Props = unknown, State = unknown> {
-  $dom: HTMLElement;
+  $node: HTMLElement;
   props?: Props & { children?: HTMLElement[] };
   state?: State;
 
@@ -12,12 +12,16 @@ export default class Node<Props = unknown, State = unknown> {
 
   setState(newState: State) {
     this.state = { ...this.state, ...newState };
-    this.$dom.replaceWith(this.render());
+
+    const $parent = this.$node.parentElement;
+    const $newNode = this.templete();
+    $parent.replaceChild($newNode, this.$node);
+    this.$node = $newNode;
   }
 
   render() {
-    this.$dom = this.templete();
-    return this.$dom;
+    this.$node = this.templete();
+    return this.$node;
   }
 
   templete(): HTMLElement {
