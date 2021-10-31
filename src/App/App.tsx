@@ -1,6 +1,7 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
-import styles from '../styles/normalize.module.scss';
+import '../styles/normalize.module.scss';
+import Land from '@/components/Land/Land';
 
 interface State {
   displayTest: boolean;
@@ -20,6 +21,10 @@ export default class App extends Node<unknown, State> {
   }
 
   template() {
-    return <div class={styles.global}></div>;
+    return (
+      <div>
+        <Land />
+      </div>
+    );
   }
 }
