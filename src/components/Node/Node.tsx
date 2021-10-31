@@ -10,7 +10,7 @@ export default class Node<Props = unknown, State = unknown> {
     this.props = props;
   }
 
-  setState(newState: State) {
+  setState(newState: Partial<State>) {
     this.state = { ...this.state, ...newState };
 
     const $parent = this.$node.parentElement;
