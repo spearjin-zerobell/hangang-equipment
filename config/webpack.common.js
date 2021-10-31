@@ -9,14 +9,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-modules-typescript-loader', { loader: 'css-loader', options: { sourceMap: true } }],
+        use: ['style-loader', { loader: 'css-loader', options: { sourceMap: true } }],
       },
       {
         test: /\.s[ac]ss$/i,
         exclude: /\.module.s[ac]ss$/i,
         use: [
           'style-loader',
-          'css-modules-typescript-loader',
           {
             loader: 'css-loader',
             options: {

@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import { Landing } from '@/pages';
-import '../styles/normalize.module.scss';
+import '@/styles/normalize.css';
 
 interface State {
   currentPage: string;
