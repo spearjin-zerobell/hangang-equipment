@@ -3,10 +3,10 @@ import { dom } from '@/utils/babel';
 /** @jsx dom */
 export default class Node<Props = unknown, State = unknown> {
   $node: HTMLElement;
-  props?: Props & { children?: HTMLElement[] };
+  props?: Props & { children?: HTMLElement[] | HTMLElement };
   state?: State;
 
-  constructor(props?: Props & { children?: HTMLElement[] }) {
+  constructor(props?: Props & { children?: HTMLElement[] | HTMLElement }) {
     this.props = props;
   }
 
@@ -14,17 +14,17 @@ export default class Node<Props = unknown, State = unknown> {
     this.state = { ...this.state, ...newState };
 
     const $parent = this.$node.parentElement;
-    const $newNode = this.templete();
+    const $newNode = this.template();
     $parent.replaceChild($newNode, this.$node);
     this.$node = $newNode;
   }
 
   render() {
-    this.$node = this.templete();
+    this.$node = this.template();
     return this.$node;
   }
 
-  templete(): HTMLElement {
+  template(): HTMLElement {
     throw new Error('Method not implemented.');
   }
 }
