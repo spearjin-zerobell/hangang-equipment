@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
-import { Node, Header } from '@/components';
-import styles from '../styles/normalize.module.scss';
+import { Node } from '@/components';
 import { Landing } from '@/pages';
+import '../styles/normalize.module.scss';
 
 interface State {
   currentPage: string;
@@ -38,7 +38,7 @@ export default class App extends Node<unknown, State> {
   template() {
     return (
       <div>
-        <Header></Header>
+        {/* <Header></Header> */}
         <main>{this.renderPage()}</main>
         {/* <Footer></Footer> */}
       </div>
