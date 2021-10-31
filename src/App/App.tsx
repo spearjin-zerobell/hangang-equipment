@@ -16,7 +16,6 @@ export default class App extends Node<unknown, State> {
 
   onClick() {
     this.setState({ displayTest: !this.state.displayTest });
-    console.log(this.state);
   }
 
   templete() {
