@@ -9,7 +9,42 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', { loader: 'css-loader', options: { sourceMap: true } }],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        exclude: /\.module.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
+      },
+      {
+        test: /\.module.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[name]-[local]-[hash:base64:3]',
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.[jt]sx?$/i,
