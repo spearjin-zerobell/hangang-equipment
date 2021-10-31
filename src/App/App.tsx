@@ -1,5 +1,6 @@
 import { dom } from '@/utils/babel';
-import { Test, Node } from '@/components';
+import { Node } from '@/components';
+import styles from '../styles/normalize.module.scss';
 
 interface State {
   displayTest: boolean;
@@ -18,12 +19,7 @@ export default class App extends Node<unknown, State> {
     this.setState({ displayTest: !this.state.displayTest });
   }
 
-  templete() {
-    return (
-      <div style={{ color: 'blue', 'background-color': 'white' }} width="12px">
-        {this.state.displayTest && <Test width="1px">Test</Test>}
-        <button onclick={this.onClick.bind(this)}>Test삭제/보이기</button>
-      </div>
-    );
+  template() {
+    return <div class={styles.global}></div>;
   }
 }
