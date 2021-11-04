@@ -26,7 +26,11 @@ export default class Link extends Node<Props> {
   }
 
   template() {
-    const { children } = this.props;
-    return <a onclick={this.onClick.bind(this)}>{children}</a>;
+    const { children, class: className, role } = this.props;
+    return (
+      <a class={className} role={role} onclick={this.onClick.bind(this)}>
+        {children}
+      </a>
+    );
   }
 }
