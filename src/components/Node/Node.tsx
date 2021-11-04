@@ -1,12 +1,18 @@
 import { dom } from '@/utils/babel';
 
+interface commonProps {
+  children?: HTMLElement[] | HTMLElement | ((...pram: unknown[]) => HTMLElement);
+  class?: string;
+  role?: string;
+}
+
 /** @jsx dom */
 export default class Node<Props = unknown, State = unknown> {
   $node: ChildNode;
-  props?: Props & { children?: HTMLElement[] | HTMLElement | ((...pram: unknown[]) => HTMLElement) };
+  props?: Props & commonProps;
   state?: State;
 
-  constructor(props?: Props & { children?: HTMLElement[] | HTMLElement | (() => HTMLElement) }) {
+  constructor(props?: Props & commonProps) {
     this.props = props;
   }
 
