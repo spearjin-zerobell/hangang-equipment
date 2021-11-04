@@ -24,7 +24,8 @@ export const dom = (
   // attributes
   if ($elem instanceof HTMLElement) {
     Object.entries(props || {}).forEach(([propName, value]) => {
-      if (propName === 'style') {
+      if (!value) return;
+      else if (propName === 'style') {
         const styles = Object.entries(props[propName])
           .map(([key, value]) => `${key}: ${value}`)
           .join(';');
