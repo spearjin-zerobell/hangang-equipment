@@ -11,12 +11,12 @@ export class Router extends Node<unknown, { type: boolean }> {
   }
   template() {
     return (
-      <DocumentFragment>
+      <fragment>
         <Route route="/" component={Landing} />
         <Route route="/about" component={About} />
         <Route route="/service" component={About} />
         <Route route="/map" component={About} />
-      </DocumentFragment>
+      </fragment>
     );
   }
 }
