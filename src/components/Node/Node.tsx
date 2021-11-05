@@ -1,30 +1,57 @@
 import { dom } from '@/utils/babel';
 
+interface commonProps {
+  children?: HTMLElement[] | HTMLElement | ((...pram: unknown[]) => HTMLElement);
+  class?: string;
+  role?: string;
+}
+
 /** @jsx dom */
 export default class Node<Props = unknown, State = unknown> {
-  $node: HTMLElement;
-  props?: Props & { children?: HTMLElement[] | HTMLElement };
+  $node: ChildNode;
+  props?: Props & commonProps;
   state?: State;
 
-  constructor(props?: Props & { children?: HTMLElement[] | HTMLElement }) {
+  constructor(props?: Props & commonProps) {
     this.props = props;
   }
 
   setState(newState: Partial<State>) {
     this.state = { ...this.state, ...newState };
+    this.reRender();
+  }
 
+  reRender() {
     const $parent = this.$node.parentElement;
     const $newNode = this.template();
+
+    // document fragment는 replaceChild에 의해 자식이 모두 사라지기 때문에
+    // this.$node를 자식으로 갱신하려면 그 전에 변수에 저장해 놓아야 한다.
+    let $contents;
+    if ($newNode.nodeName === '#document-fragment') {
+      $contents = $newNode.childNodes[0];
+    } else {
+      $contents = $newNode;
+    }
+
     $parent.replaceChild($newNode, this.$node);
-    this.$node = $newNode;
+
+    this.$node = $contents;
   }
 
   render() {
-    this.$node = this.template();
-    return this.$node;
+    const $newNode = this.template();
+    if ($newNode.nodeName === '#document-fragment') this.$node = $newNode.childNodes[0];
+    else this.$node = $newNode;
+    return $newNode;
   }
 
   template(): HTMLElement {
-    throw new Error('Method not implemented.');
+    try {
+      throw new Error('Method not implemented.');
+    } catch (e) {
+      console.error(e);
+    }
+    return;
   }
 }

@@ -1,7 +1,10 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
-import { Landing } from '@/pages';
+// import { Header, Modal, Node } from '@/components';
+// import { Router } from '@/Router/Router';
+
 import '@/styles/normalize.css';
+import '@/styles/global.css';
 
 interface State {
   currentPage: string;
@@ -10,38 +13,15 @@ interface State {
 
 /** @jsx dom */
 export default class App extends Node<unknown, State> {
-  state = {
-    currentPage: 'landing',
-    pages: [
-      { id: 'landing', to: '/', text: '홈' },
-      { id: 'about', to: '/about', text: '소개' },
-      { id: 'service', to: '/service', text: '서비스' },
-      { id: 'contact', to: '/customer', text: '고객센터' },
-    ],
-  };
-
-  renderPage() {
-    switch (this.state.currentPage) {
-      case 'landing':
-        return <Landing />;
-      // case 'about':
-      //   return <About />;
-      // case 'service':
-      //   return <Service />;
-      // case 'contact':
-      //   return <Contact />;
-      default:
-        return <Landing />;
-    }
-  }
-
   template() {
     return (
-      <div>
-        {/* <Header></Header> */}
-        <main>{this.renderPage()}</main>
+      <fragment>
+        Test
+        {/* <Modal /> */}
+        {/* <Header></Header>
+        <Router /> */}
         {/* <Footer></Footer> */}
-      </div>
+      </fragment>
     );
   }
 }

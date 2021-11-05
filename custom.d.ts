@@ -118,6 +118,9 @@ declare global {
     video: HTMLVideoElement;
     wbr: HTMLElement;
 
+    // custom
+    fragment: HTMLElement;
+
     // SVG
     svg: SVGSVGElement;
 
