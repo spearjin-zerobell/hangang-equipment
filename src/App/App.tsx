@@ -2,6 +2,7 @@ import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 // import { Header, Modal, Node } from '@/components';
 // import { Router } from '@/Router/Router';
+import 'element-closest-polyfill';
 
 import '@/styles/normalize.css';
 import '@/styles/global.css';
@@ -16,10 +17,8 @@ export default class App extends Node<unknown, State> {
   template() {
     return (
       <fragment>
-        Test
-        {/* <Modal /> */}
-        {/* <Header></Header>
-        <Router /> */}
+        {/* <Header /> */}
+        {/* <Router /> */}
         {/* <Footer></Footer> */}
       </fragment>
     );
