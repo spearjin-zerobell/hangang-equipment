@@ -47,6 +47,11 @@ export default class Node<Props = unknown, State = unknown> {
   }
 
   template(): HTMLElement {
-    throw new Error('Method not implemented.');
+    try {
+      throw new Error('Method not implemented.');
+    } catch (e) {
+      console.error(e);
+    }
+    return;
   }
 }
