@@ -16,11 +16,7 @@ export const dom = (
   }
 
   // intrinsic Elements
-  const $elem =
-    typeof tag === 'function' && tag.name === 'DocumentFragment'
-      ? new DocumentFragment()
-      : document.createElement(tag as string);
-
+  const $elem = tag === 'fragment' ? document.createDocumentFragment() : document.createElement(tag as string);
   // attributes
   if ($elem instanceof HTMLElement) {
     Object.entries(props || {}).forEach(([propName, value]) => {
