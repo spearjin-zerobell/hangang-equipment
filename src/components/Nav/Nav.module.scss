@@ -1,0 +1,62 @@
+.nav {
+  position: absolute;
+  top: -100vh;
+  width: 100%;
+  // background-color: #1190bb;
+  background-color: white;
+  box-shadow: 0 -30px 17px rgb(0 0 0 / 30%);
+  transition: top 0.5s;
+
+  flex-grow: 1;
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #707070;
+    li {
+      position: relative;
+      height: 60px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      a {
+        width: 100%;
+        padding: 16px;
+        z-index: 1;
+      }
+      > img {
+        position: absolute;
+        right: 18px;
+        bottom: 50%;
+        content: '';
+        width: 20px;
+        height: 20px;
+        transform: translateY(50%) rotate(-90deg);
+      }
+    }
+
+    li:not(:last-child)::before {
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      content: '';
+      width: calc(100% - 32px);
+      height: 1px;
+      background-color: lightgray;
+    }
+  }
+}
+
+.triAngle {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-radius: 2px;
+  border: 10px solid transparent;
+  border-top: 0;
+  border-bottom: 10px solid white;
+}
