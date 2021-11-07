@@ -1,7 +1,6 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
-// import { Header, Modal, Node } from '@/components';
-// import { Router } from '@/Router/Router';
+import { Router } from '@/Router/Router';
 import 'element-closest-polyfill';
 
 import '@/styles/normalize.css';
@@ -17,8 +16,7 @@ export default class App extends Node<unknown, State> {
   template() {
     return (
       <fragment>
-        {/* <Header /> */}
-        {/* <Router /> */}
+        <Router />
         {/* <Footer></Footer> */}
       </fragment>
     );
