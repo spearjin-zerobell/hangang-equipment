@@ -1,5 +1,5 @@
 import { dom } from '@/utils/babel';
-import { Node } from '@/components';
+import { Header, Node } from '@/components';
 import { RouterContext } from '@/GlobalState/GlobalState';
 import { About, Landing } from '@/pages';
 
@@ -12,6 +12,7 @@ export class Router extends Node<unknown, { type: boolean }> {
   template() {
     return (
       <fragment>
+        <Header />
         <Route route="/" component={Landing} />
         <Route route="/about" component={About} />
         <Route route="/service" component={About} />
@@ -31,7 +32,7 @@ export class Route extends Node<RouteProps> {
     const { route } = this.props;
     const Component = this.props.component;
 
-    return location.pathname === route && <Component />;
+    return location.pathname === route ? <Component /> : '';
   }
 }
 
