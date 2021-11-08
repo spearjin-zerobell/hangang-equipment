@@ -24,7 +24,6 @@ export default class Node<Props = unknown, State = unknown> {
   }
 
   reRender() {
-    console.log(this.$node);
     const $parent = Array.isArray(this.$node) ? this.$node[0].parentNode : this.$node.parentNode;
     const $newNode = this.template();
 
@@ -32,7 +31,6 @@ export default class Node<Props = unknown, State = unknown> {
     // this.$node를 자식으로 갱신하려면 그 전에 변수에 저장해 놓아야 한다.
     let $contents: ChildNode | ChildNode[];
     if ($newNode?.nodeName === '#document-fragment') {
-      console.log($contents);
       $contents = Array.from($newNode.childNodes || []);
     } else {
       $contents = $newNode;

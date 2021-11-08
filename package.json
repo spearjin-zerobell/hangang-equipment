@@ -47,6 +47,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "core-js": "^3.19.0",
     "element-closest-polyfill": "^1.0.4"
   }
