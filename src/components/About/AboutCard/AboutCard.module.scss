@@ -1,0 +1,17 @@
+@use '@/styles/theme';
+
+.aboutCard {
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 6px 6px 10px #e0e0e0;
+  padding: 50px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  svg {
+    color: theme.$primary;
+  }
+}
