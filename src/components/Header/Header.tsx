@@ -31,6 +31,7 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
             <img src={logoSrc} />
           </Link>
           <div
+            tabindex="0"
             class={style.menuToggle}
             onclick={this.handleToggleMenu.bind(this)}
             role="button"
