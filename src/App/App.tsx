@@ -5,6 +5,7 @@ import 'element-closest-polyfill';
 
 import '@/styles/normalize.css';
 import '@/styles/global.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 /** @jsx dom */
 export default class App extends Node {
