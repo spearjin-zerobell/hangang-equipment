@@ -31,13 +31,6 @@ export default class ServiceQuestion extends Node<Props, State> {
               </li>
             );
           })}
-          {/* <li class={styles.question__card}>
-            <div class={styles.question__card__title} onclick={this.onClickToggle}>
-              <h3>배관설비가 무엇인가요?</h3>
-              <span>⬇️</span>
-            </div>
-            <p>가정 내 냉온수 공급, 실내 환기, 생활 하수 배출 따위에 필요한 급수 및 배수 설비 입니다. </p>
-          </li> */}
         </ul>
       </div>
     );
