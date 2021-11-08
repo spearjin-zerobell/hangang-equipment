@@ -3,27 +3,29 @@ const path = require('path');
 const __ROOT = process.cwd();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const postCssLoader = {
+  loader: 'postcss-loader',
+  options: {
+    postcssOptions: {
+      plugins: [['postcss-preset-env', 'autoprefixer']],
+    },
+  },
+};
+
+const cssLoader = { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } };
+
 module.exports = {
   entry: './src/index.tsx',
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', { loader: 'css-loader', options: { sourceMap: true } }],
+        use: ['style-loader', { ...cssLoader, options: { ...cssLoader.options, importLoaders: 1 } }, postCssLoader],
       },
       {
         test: /\.s[ac]ss$/i,
         exclude: /\.module.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          { loader: 'sass-loader', options: { sourceMap: true } },
-        ],
+        use: ['style-loader', cssLoader, postCssLoader, { loader: 'sass-loader', options: { sourceMap: true } }],
       },
       {
         test: /\.module.s[ac]ss$/i,
@@ -31,14 +33,15 @@ module.exports = {
           'style-loader',
           'css-modules-typescript-loader',
           {
-            loader: 'css-loader',
+            ...cssLoader,
             options: {
-              sourceMap: true,
+              ...cssLoader.options,
               modules: {
                 localIdentName: '[name]-[local]-[hash:base64:3]',
               },
             },
           },
+          postCssLoader,
           {
             loader: 'sass-loader',
             options: {
@@ -86,6 +89,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '한강설비',
       template: 'src/index.html',
+      favicon: './favicon.png',
     }),
   ],
 };

@@ -1,6 +1,8 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import { RouterContext } from '@/GlobalState/GlobalState';
+import style from './Link.module.scss';
+
 interface Props {
   to: string;
   state?: {
@@ -26,9 +28,17 @@ export default class Link extends Node<Props> {
   }
 
   template() {
-    const { children, class: className, role } = this.props;
+    const { children, class: className, role, tabindex, onclick } = this.props;
     return (
-      <a class={className} role={role} onclick={this.onClick.bind(this)}>
+      <a
+        class={className + ' ' + style.link}
+        role={role}
+        onclick={(e: Event) => {
+          this.onClick.call(this, e);
+          typeof onclick === 'function' && onclick(e);
+        }}
+        tabindex={tabindex ?? '0'}
+      >
         {children}
       </a>
     );

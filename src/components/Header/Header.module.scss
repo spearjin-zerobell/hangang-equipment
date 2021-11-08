@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 0 15px rgb(0 0 0 / 30%);
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  width: 100px;
+  img {
+    width: 100%;
+  }
+}
+
+.menuToggle {
+  cursor: pointer;
+  padding: 20px;
+  span,
+  &::after,
+  &::before {
+    display: block;
+    content: '';
+    width: 22px;
+    height: 3px;
+    background-color: black;
+    transition: transform 0.3s;
+  }
+  span {
+    margin: 5px 0;
+  }
+}
+
+.btnOpen {
+  span {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: translateY(-8px) rotate(45deg);
+  }
+  &::before {
+    transform: translateY(8px) rotate(-45deg);
+  }
+}
+
+.navOpen {
+  top: 73px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -33,6 +33,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.4.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
@@ -44,6 +47,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "core-js": "^3.19.0"
+    "core-js": "^3.19.0",
+    "element-closest-polyfill": "^1.0.4"
   }
 }
