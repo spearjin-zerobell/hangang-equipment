@@ -8,6 +8,7 @@ interface Props {
   state?: {
     [k: string]: any;
   };
+  classFunc?: (isActive: boolean) => string;
 }
 
 /** @jsx dom */
@@ -28,10 +29,13 @@ export default class Link extends Node<Props> {
   }
 
   template() {
-    const { children, class: className, role, tabindex, onclick } = this.props;
+    const { to, children, class: className = '', classFunc, role, tabindex, onclick } = this.props;
+
+    const activeClass = classFunc?.(RouterContext.pathName === to) || '';
+    console.log((RouterContext.pathName, to));
     return (
       <a
-        class={className + ' ' + style.link}
+        class={(className + ' ' + activeClass + ' ' + style.link).trim()}
         role={role}
         onclick={(e: Event) => {
           this.onClick.call(this, e);
