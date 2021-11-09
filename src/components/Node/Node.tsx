@@ -42,7 +42,7 @@ export default class Node<Props = unknown, State = unknown> {
       }
     } else {
       const $newNode = $contents as ChildNode;
-      $parent.replaceChild(this.$node as ChildNode, $newNode);
+      $parent.replaceChild($newNode, this.$node as ChildNode);
     }
 
     this.$node = $contents;
@@ -51,7 +51,6 @@ export default class Node<Props = unknown, State = unknown> {
   render() {
     const $newNode = this.template();
     if ($newNode.nodeName === '#document-fragment') {
-      // console.log($newNode.children); // undefined가 뜨는 경우 처리 필요
       this.$node = Array.from($newNode.childNodes || []);
     } else this.$node = $newNode;
     return $newNode;

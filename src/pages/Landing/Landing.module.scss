@@ -1,0 +1,132 @@
+.land__main {
+  height: 500px;
+}
+
+.main__img {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+}
+
+.main__serviceList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0;
+}
+
+.land__introduce {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px;
+  background-color: white;
+}
+
+.landing__title {
+  margin: 5px 0;
+  color: #5f5b5e;
+  font-size: 30px;
+}
+
+.introudct__title {
+  margin: 5px 0;
+  color: #5f5b5e;
+  font-size: 30px;
+}
+
+.introudct__description {
+  font-size: 24px;
+  color: gray;
+  text-align: center;
+}
+
+.introduce__divider {
+  position: relative;
+}
+
+.divider__title::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 120%;
+  content: '';
+  height: 2px;
+  width: 250%;
+  background-color: gray;
+}
+
+.divider__title::before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 120%;
+  content: '';
+  height: 2px;
+  width: 250%;
+  background-color: gray;
+}
+
+.land__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 0;
+  background: linear-gradient(
+    20deg,
+    rgb(18, 103, 159) 0%,
+    rgb(11, 92, 143) 8%,
+    rgb(0, 87, 138) 22%,
+    rgb(28, 146, 189) 87%,
+    rgb(5, 148, 237) 98%
+  );
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.land__contact > .landing__title {
+  color: white;
+}
+
+.contact__img {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.contact__call {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.contact__email {
+  padding-top: 10px;
+  font-size: 13px;
+  color: white;
+}
+
+.contact__btn {
+  width: 125px;
+  height: 40px;
+  margin: 20px 0;
+  background-color: #039be5;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 300ms ease-in;
+  &:hover {
+    transform: scale(1.1);
+  }
+}

@@ -32,7 +32,7 @@ export default class Link extends Node<Props> {
     const { to, children, class: className = '', classFunc, role, tabindex, onclick } = this.props;
 
     const activeClass = classFunc?.(RouterContext.pathName === to) || '';
-    console.log((RouterContext.pathName, to));
+
     return (
       <a
         class={(className + ' ' + activeClass + ' ' + style.link).trim()}
