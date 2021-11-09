@@ -14,12 +14,6 @@ import icon2 from './assets/icon/service2.svg';
 import icon3 from './assets/icon/service3.svg';
 import icon4 from './assets/icon/service4.svg';
 
-interface State {
-  data: object;
-  type: string;
-  tab: string;
-}
-
 const serviceData = {
   first: pipeInfo,
   second: heatingInfo,
@@ -53,11 +47,32 @@ class Tap extends Node {
   }
 }
 
-export default class Service extends Node<unknown, State> {
-  state = {
-    data: pipeInfo,
-    type: 'A',
+interface State {
+  // data: TypeAProps | TypeBProps;
+  type: string;
+  tab: keyof typeof questionInfo;
+  data: {
+    title: {
+      name: string;
+      icon: string;
+    };
+    content: {
+      name: string;
+      img: string;
+    }[];
   };
+}
+
+export default class Service extends Node<unknown, State> {
+  constructor() {
+    super();
+
+    this.state = {
+      data: pipeInfo,
+      type: 'A',
+      tab: 'pipe',
+    };
+  }
 
   typeSelect(info: string) {
     if (info === 'pipe') {
@@ -71,32 +86,35 @@ export default class Service extends Node<unknown, State> {
     }
   }
 
-  onClickBtn = async e => {
-    const target = e.target;
-    const $button = target.closest('.tab');
+  onClickBtn = (e: Event) => {
+    const target = e.target as HTMLElement;
+    const $button = target.closest('.tab') as HTMLElement;
     if (!$button) return;
 
     this.typeSelect($button.dataset.type);
     this.selected(e);
   };
 
-  selected = e => {
+  selected(e: Event) {
     const selecte = document.querySelector('[class*=selected]');
-    const $target = e.target.closest('.tab');
-    document.querySelectorAll('.tab').forEach($tab => {
-      if ($tab.dataset.type === $target.dataset.type) {
-        selecte.classList.remove(styles.selected);
-        $tab.classList.add(styles.selected);
-      }
-    });
-  };
+    const target = e.target as HTMLElement;
+    const $target = target.closest('.tab');
+    if ($target instanceof HTMLElement) {
+      document.querySelectorAll('.tab').forEach(($tab: HTMLElement) => {
+        if ($tab.dataset.type === $target.dataset.type) {
+          selecte.classList.remove(styles.selected);
+          $tab.classList.add(styles.selected);
+        }
+      });
+    }
+  }
 
   template() {
     return (
       <div class={styles.service} onclick={this.onClickBtn}>
         <Tap />
         {this.state.type === 'A' ? <ServiceTypeA info={this.state.data} /> : <ServiceTypeB info={this.state.data} />}
-        <ServiceQuestion questionInfo={questionInfo} />
+        <ServiceQuestion questionInfo={questionInfo[this.state.tab]} />
       </div>
     );
   }
