@@ -2,8 +2,18 @@ import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './ServiceTypeA.module.scss';
 
-interface Props {
-  info: string[];
+export interface Props {
+  info: {
+    title: {
+      name: string;
+      icon: string;
+    };
+
+    content: {
+      name: string;
+      img: string;
+    }[];
+  };
 }
 
 /** @jsx dom */
@@ -12,17 +22,14 @@ export default class ServiceTypeA extends Node<Props> {
     const { info } = this.props;
     return (
       <div class={styles.typeA}>
-        <img src={info[0].icon} class={styles.title__icon} />
-        <h2>{info[0].title}</h2>
+        <img src={info.title.icon} class={styles.title__icon} />
+        <h2>{info.title.name}</h2>
         <ul class={styles.typeAList}>
-          {info.map(item => {
-            if (item.img === undefined) {
-              return '';
-            }
+          {info.content.map(item => {
             return (
               <li class={styles.typeAList__card}>
                 <img src={item.img} class={styles.typeAList__img} />
-                <span>{item.title}</span>
+                <span>{item.name}</span>
               </li>
             );
           })}
