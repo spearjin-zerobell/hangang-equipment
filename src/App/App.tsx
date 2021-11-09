@@ -1,5 +1,5 @@
 import { dom } from '@/utils/babel';
-import { Node } from '@/components';
+import { Node, Footer } from '@/components';
 import { Router } from '@/Router/Router';
 import 'element-closest-polyfill';
 
@@ -13,7 +13,7 @@ export default class App extends Node {
     return (
       <fragment>
         <Router />
-        {/* <Footer></Footer> */}
+        <Footer />
       </fragment>
     );
   }
