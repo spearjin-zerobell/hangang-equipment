@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
 import { Header, Node } from '@/components';
 import { RouterContext } from '@/GlobalState/GlobalState';
-import { About, Landing } from '@/pages';
+import { About, Landing, Service } from '@/pages';
 
 /** @jsx dom */
 export class Router extends Node<unknown, { type: boolean }> {
@@ -11,13 +11,13 @@ export class Router extends Node<unknown, { type: boolean }> {
   }
   template() {
     return (
-      <fragment>
+      <div>
         <Header />
         <Route route="/" component={Landing} />
         <Route route="/about" component={About} />
-        <Route route="/service" component={About} />
+        <Route route="/service" component={Service} />
         <Route route="/map" component={About} />
-      </fragment>
+      </div>
     );
   }
 }
