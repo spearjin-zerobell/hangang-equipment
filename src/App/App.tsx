@@ -1,10 +1,11 @@
 import { dom } from '@/utils/babel';
-import { Node } from '@/components';
+import { Node, Footer } from '@/components';
 import { Router } from '@/Router/Router';
 import 'element-closest-polyfill';
 
 import '@/styles/normalize.css';
 import '@/styles/global.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 /** @jsx dom */
 export default class App extends Node {
@@ -12,7 +13,7 @@ export default class App extends Node {
     return (
       <fragment>
         <Router />
-        {/* <Footer></Footer> */}
+        <Footer />
       </fragment>
     );
   }

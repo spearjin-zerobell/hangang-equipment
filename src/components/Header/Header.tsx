@@ -25,8 +25,8 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
 
   template() {
     return (
-      <header>
-        <div class={style.header}>
+      <header class={style.header}>
+        <div class={style.headerBar}>
           <Link class={style.logo} to="/">
             <img src={logoSrc} />
           </Link>
