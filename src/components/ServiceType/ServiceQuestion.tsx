@@ -4,19 +4,23 @@ import styles from './ServiceQuestion.module.scss';
 import { generateClassName } from '@/utils';
 
 interface Props {
-  questionInfo: string[];
+  questionInfo: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 /** @jsx dom */
-export default class ServiceQuestion extends Node<Props, State> {
-  onClickToggle = e => {
-    const target = e.target;
+export default class ServiceQuestion extends Node<Props> {
+  onClickToggle = (e: Event) => {
+    const target = e.target as HTMLElement;
     const answer = target.closest('.target');
     answer.classList.toggle(styles.open);
   };
 
   template() {
     const { questionInfo } = this.props;
+    console.log(questionInfo);
     return (
       <div class={styles.question}>
         <h2>자주 묻는 질문</h2>
