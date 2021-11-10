@@ -16,7 +16,7 @@ import after1 from './assets/img/after1.jpeg';
 export const pipeInfo = {
   title: {
     name: '배관설비',
-    icon: icon1,
+    iconClassName: 'fa-faucet',
   },
 
   content: [

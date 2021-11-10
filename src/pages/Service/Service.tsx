@@ -27,7 +27,7 @@ class Tap extends Node {
     return (
       <ul class={styles.service__list}>
         <li class={generateClassName('tab', styles.service__card, styles.selected)} data-type="pipe">
-          <img src={icon1} class={styles.card__icon} />
+          <i class={generateClassName('fas fa-faucet', styles.card__icon)} />
           <span>배관</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="heating">

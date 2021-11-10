@@ -1,12 +1,13 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './ServiceTypeA.module.scss';
+import { generateClassName } from '@/utils';
 
 export interface Props {
   info: {
     title: {
       name: string;
-      icon: string;
+      iconClassName: string;
     };
 
     content: {
@@ -22,7 +23,7 @@ export default class ServiceTypeA extends Node<Props> {
     const { info } = this.props;
     return (
       <div class={styles.typeA}>
-        <img src={info.title.icon} class={styles.title__icon} />
+        <i class={generateClassName(`fa + ${info.title.iconClassName}`, styles.title__icon)} />
         <h2>{info.title.name}</h2>
         <ul class={styles.typeAList}>
           {info.content.map(item => {

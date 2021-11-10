@@ -7,7 +7,7 @@ import service1 from './assets/icon/service1.svg';
 import service2 from './assets/icon/service2.svg';
 import service3 from './assets/icon/service3.svg';
 import service4 from './assets/icon/service4.svg';
-import contact from './assets/icon/contact.svg';
+import { generateClassName } from '@/utils';
 
 /** @jsx dom */
 export default class Landing extends Node {
@@ -56,7 +56,7 @@ export default class Landing extends Node {
         </section>
 
         <section class={styles.land__contact}>
-          <img src={contact} class={styles.contact__img} />
+          <i class={generateClassName('fas fa-phone-volume', styles.contact__img)}> </i>
           <div class={styles.landing__title}>전화 상담</div>
           <span class={styles.contact__call}>031-000-0000</span>
           <span class={styles.contact__call}>010-0000-0000</span>
