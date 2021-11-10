@@ -32,31 +32,28 @@
 
 .typeBList__card {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  width: 100%;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.typeB__description {
   width: 80%;
-  margin-top: 5px;
-  border-radius: 20px;
-
-  > span {
-    padding: 2px 5px;
-    font-size: 14px;
-    text-align: center;
+  text-align: center;
+  color: #111111;
+  > p {
+    color: #555555;
+    padding: 0 5px;
   }
-}
-
-.typeBList__card:nth-child(odd) {
-  transform: translateX(-10%);
-}
-
-.typeBList__card:nth-child(even) {
-  transform: translateX(10%);
 }
 
 .typeBList__img {
   width: 100%;
-  height: calc(50vw - 16px);
-  padding-bottom: 5px;
+  height: calc(50vw);
 }
 
 .typeBDescription {
