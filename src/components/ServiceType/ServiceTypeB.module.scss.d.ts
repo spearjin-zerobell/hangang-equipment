@@ -7,6 +7,7 @@ interface CssExports {
   'typeBList': string;
   'typeBList__card': string;
   'typeBList__img': string;
+  'typeB__description': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

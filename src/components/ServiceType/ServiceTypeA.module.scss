@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
   margin: 25px 14px;
 }
 
@@ -11,9 +10,18 @@
   color: #555555;
 }
 
+.typeA__explain {
+  display: block;
+  padding: 20px;
+  margin: 0;
+  letter-spacing: 1px;
+  // text-align: center;
+  // background-color: white;
+}
+
 .typeAList {
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

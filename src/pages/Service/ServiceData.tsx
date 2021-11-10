@@ -65,7 +65,7 @@ export const pipeInfo = {
 export const heatingInfo = {
   title: {
     name: '난방설비',
-    iconClassName: 'fa-tint',
+    iconClassName: 'fa-sun',
   },
 
   content: [
@@ -99,16 +99,18 @@ export const heatingInfo = {
 export const leakingInfo = {
   title: {
     name: '누수설비',
-    iconClassName: 'fa-fire',
+    iconClassName: 'fa-tint',
   },
 
   content: [
     {
       name: '시공전',
+      description: '한파로 인해 배관이 얼어버리는 문제가 발생했습니다.',
       img: before1,
     },
     {
       name: '시공후',
+      description: '얼음을 녹이고 부서진 파이브를 수리 하였습니다.',
       img: after1,
     },
   ],
@@ -123,10 +125,12 @@ export const repairsInfo = {
   content: [
     {
       name: '시공전',
+      description: '한파로 인해 배관이 얼어버리는 문제가 발생했습니다.',
       img: before1,
     },
     {
       name: '시공후',
+      description: '얼음을 녹이고 부서진 파이브를 수리 하였습니다.',
       img: after1,
     },
   ],

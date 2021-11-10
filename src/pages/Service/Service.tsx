@@ -33,11 +33,11 @@ class Tap extends Node {
           <span>배관</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="heating">
-          <i class={generateClassName('fas fa-tint', styles.card__icon)} />
+          <i class={generateClassName('fas fa-sun', styles.card__icon)} />
           <span>난방</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="leaking">
-          <i class={generateClassName('fas fa-fire', styles.card__icon)} />
+          <i class={generateClassName('fas fa-tint', styles.card__icon)} />
           <span>누수</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="repairs">
@@ -61,6 +61,7 @@ interface State {
       name: string;
       kind?: string;
       img?: string;
+      description?: string;
     }[];
   };
 }
