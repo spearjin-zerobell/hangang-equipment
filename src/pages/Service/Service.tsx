@@ -3,18 +3,16 @@ import { Node } from '@/components';
 import styles from './Service.module.scss';
 import { generateClassName } from '@/utils';
 
+import ServiceTypeMain from '@/components/ServiceType/ServiceTypeMain';
 import ServiceTypeA from '@/components/ServiceType/ServiceTypeA';
 import ServiceTypeB from '@/components/ServiceType/ServiceTypeB';
 import ServiceQuestion from '@/components/ServiceType/ServiceQuestion';
 
-import { heatingInfo, leakingInfo, pipeInfo, questionInfo, repairsInfo } from './ServiceData';
-
-import icon1 from './assets/icon/service1.svg';
-import icon2 from './assets/icon/service2.svg';
-import icon3 from './assets/icon/service3.svg';
-import icon4 from './assets/icon/service4.svg';
+import { heatingInfo, leakingInfo, mainInfo, pipeInfo, questionInfo, repairsInfo } from './ServiceData';
+import Title from '@/components/Title/Title';
 
 const serviceData = {
+  main: mainInfo,
   first: pipeInfo,
   second: heatingInfo,
   three: leakingInfo,
@@ -26,20 +24,24 @@ class Tap extends Node {
   template() {
     return (
       <ul class={styles.service__list}>
-        <li class={generateClassName('tab', styles.service__card, styles.selected)} data-type="pipe">
+        <li class={generateClassName('tab', styles.service__card, styles.selected)} data-type="main">
+          <i class={generateClassName('fas fa-hammer', styles.card__icon)} />
+          <span>전체</span>
+        </li>
+        <li class={generateClassName('tab', styles.service__card)} data-type="pipe">
           <i class={generateClassName('fas fa-faucet', styles.card__icon)} />
           <span>배관</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="heating">
-          <img src={icon2} class={styles.card__icon} />
+          <i class={generateClassName('fas fa-tint', styles.card__icon)} />
           <span>난방</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="leaking">
-          <img src={icon3} class={styles.card__icon} />
+          <i class={generateClassName('fas fa-fire', styles.card__icon)} />
           <span>누수</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="repairs">
-          <img src={icon4} class={styles.card__icon} />
+          <i class={generateClassName('fas fa-tools', styles.card__icon)} />
           <span>집수리</span>
         </li>
       </ul>
@@ -48,17 +50,17 @@ class Tap extends Node {
 }
 
 interface State {
-  // data: TypeAProps | TypeBProps;
   type: string;
   tab: keyof typeof questionInfo;
   data: {
     title: {
       name: string;
-      icon: string;
+      iconClassName: string;
     };
     content: {
       name: string;
-      img: string;
+      kind?: string;
+      img?: string;
     }[];
   };
 }
@@ -68,14 +70,16 @@ export default class Service extends Node<unknown, State> {
     super();
 
     this.state = {
-      data: pipeInfo,
-      type: 'A',
-      tab: 'pipe',
+      data: mainInfo,
+      type: 'main',
+      tab: 'main',
     };
   }
 
   typeSelect(info: string) {
-    if (info === 'pipe') {
+    if (info === 'main') {
+      this.setState({ data: serviceData.main, type: 'main', tab: info });
+    } else if (info === 'pipe') {
       this.setState({ data: serviceData.first, type: 'A', tab: info });
     } else if (info === 'heating') {
       this.setState({ data: serviceData.second, type: 'A', tab: info });
@@ -111,11 +115,20 @@ export default class Service extends Node<unknown, State> {
 
   template() {
     return (
-      <div class={styles.service} onclick={this.onClickBtn}>
-        <Tap />
-        {this.state.type === 'A' ? <ServiceTypeA info={this.state.data} /> : <ServiceTypeB info={this.state.data} />}
-        <ServiceQuestion questionInfo={questionInfo[this.state.tab]} />
-      </div>
+      <fragment>
+        <Title color="#637281">서비스</Title>
+        <div class={styles.service} onclick={this.onClickBtn}>
+          <Tap />
+          {this.state.type === 'main' ? (
+            <ServiceTypeMain info={this.state.data} />
+          ) : this.state.type === 'A' ? (
+            <ServiceTypeA info={this.state.data} />
+          ) : (
+            <ServiceTypeB info={this.state.data} />
+          )}
+          <ServiceQuestion questionInfo={questionInfo[this.state.tab]} />
+        </div>
+      </fragment>
     );
   }
 }
