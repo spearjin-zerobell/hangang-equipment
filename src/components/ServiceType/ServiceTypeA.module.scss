@@ -6,7 +6,7 @@
     margin: 0;
     letter-spacing: 4px;
   }
-  margin: 20px 14px;
+  margin: 25px 14px;
 
   > *:not(:last-child) {
     margin-bottom: 20px;
@@ -14,8 +14,8 @@
 }
 
 .title__icon {
-  width: 30px;
-  height: 30px;
+  font-size: 20px;
+  color: #555555;
 }
 
 .typeAList {
@@ -34,15 +34,16 @@
   justify-content: center;
   width: calc(50% - 7px);
   margin-top: 5px;
-  border-radius: 20px;
 
   &:nth-child(odd) {
     margin-right: 14px;
   }
 
-  & > span {
+  > span {
     padding: 2px 5px;
     font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
   }
 }
 

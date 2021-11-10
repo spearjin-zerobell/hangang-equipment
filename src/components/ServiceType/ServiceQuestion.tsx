@@ -20,23 +20,23 @@ export default class ServiceQuestion extends Node<Props> {
 
   template() {
     const { questionInfo } = this.props;
-    console.log(questionInfo);
     return (
-      <div class={styles.question}>
-        <h2>자주 묻는 질문</h2>
+      <section class={styles.question}>
+        <h3>자주 묻는 질문</h3>
         <ul class={styles.question__list}>
           {questionInfo.map(item => {
             return (
               <li class={generateClassName('target', styles.question__card)} onclick={this.onClickToggle}>
-                <div class={styles.question__card__title}>
-                  <h3>{item.question}</h3>
-                </div>
-                <p>{item.answer}</p>
+                <h4 class={styles.question__card__title}>{item.question}</h4>
+                <p class={styles.question__content}>{item.answer}</p>
               </li>
             );
           })}
         </ul>
-      </div>
+        <button class={styles.question__contact}>
+          <i class="fas fa-phone-alt"></i>전화상담
+        </button>
+      </section>
     );
   }
 }
