@@ -5,6 +5,8 @@ interface CssExports {
   'question': string;
   'question__card': string;
   'question__card__title': string;
+  'question__contact': string;
+  'question__content': string;
   'question__list': string;
 }
 export const cssExports: CssExports;
