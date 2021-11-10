@@ -2,8 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  & > h2 {
+    margin: 0;
+    letter-spacing: 4px;
+  }
   margin: 25px 14px;
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 
 .title__icon {
@@ -18,8 +24,10 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  gap: 14px;
   list-style: none;
+  > *:not(:last-child) {
+    margin-bottom: 14px;
+  }
 }
 
 .typeBList__card {

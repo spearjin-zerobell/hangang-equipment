@@ -6,3 +6,5 @@ export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';
 export { default as AboutCard } from './About/AboutCard/AboutCard';
 export { default as ProfileCard } from './About/ProfileCard/ProfileCard';
+export { default as KaKaoMap } from './KaKaoMap/KaKaoMap';
+export { default as Title } from './Title/Title';

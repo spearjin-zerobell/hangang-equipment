@@ -7,7 +7,9 @@
   color: theme.$gray;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
   font-size: 0.625rem;
   justify-content: center;
   line-height: 1;

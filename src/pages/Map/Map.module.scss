@@ -1,0 +1,20 @@
+@use '@/styles/theme.scss';
+
+.way {
+  margin: 0 30px;
+  color: theme.$black;
+  h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1.875rem;
+  }
+
+  dt {
+    margin: 20px 0;
+    font-weight: 600;
+  }
+
+  dl {
+    margin: 30px 0;
+  }
+}
