@@ -1,0 +1,43 @@
+.typeMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 14px;
+}
+
+.typeMainTitle {
+  margin: 0;
+}
+
+.title__icon {
+  font-size: 20px;
+  color: #555555;
+}
+
+.typeMainList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.typeMainList__item {
+  width: 80%;
+  > span {
+    padding: 2px 0px;
+    font-size: 14px;
+    text-align: center;
+  }
+  &:not(:last-child)::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    text-align: center;
+    margin-top: 15px;
+  }
+}
