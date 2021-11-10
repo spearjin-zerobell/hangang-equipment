@@ -188,6 +188,12 @@ declare global {
       [Element in keyof Elements]: any;
     };
   }
+
+  interface Window {
+    kakao: {
+      maps: any;
+    };
+  }
 }
 
 export default global;

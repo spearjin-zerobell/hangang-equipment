@@ -90,6 +90,7 @@ module.exports = {
       title: '한강설비',
       template: 'src/index.html',
       favicon: './favicon.png',
+      kakaoAPIKey: process.env.kakaoAPIKey,
     }),
   ],
 };

@@ -9,7 +9,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  h4 {
+    margin: 0;
+    color: theme.$primary;
+    font-size: 1rem;
+  }
 
   svg {
     color: theme.$primary;

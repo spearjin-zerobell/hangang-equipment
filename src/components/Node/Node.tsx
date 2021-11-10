@@ -23,6 +23,8 @@ export default class Node<Props = unknown, State = unknown> {
     this.reRender();
   }
 
+  componentDidMount() {}
+
   reRender() {
     const $parent = Array.isArray(this.$node) ? this.$node[0].parentNode : this.$node.parentNode;
     const $newNode = this.template();
@@ -53,6 +55,11 @@ export default class Node<Props = unknown, State = unknown> {
     if ($newNode.nodeName === '#document-fragment') {
       this.$node = Array.from($newNode.childNodes || []);
     } else this.$node = $newNode;
+
+    setTimeout(() => {
+      this.componentDidMount();
+    });
+
     return $newNode;
   }
 

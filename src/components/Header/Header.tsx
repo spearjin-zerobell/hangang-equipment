@@ -13,13 +13,12 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
     const $menuBtn = e.target as HTMLElement;
     const $nav = $menuBtn.closest('header').querySelector('[class*=nav]') as HTMLElement;
 
-    $menuBtn.classList.toggle(style.btnOpen);
-    $nav.classList.toggle(style.navOpen);
-
     if ($nav.classList.contains(style.navOpen)) {
-      document.body.style.overflow = 'hidden';
+      $menuBtn.classList.remove(style.btnOpen);
+      $nav.classList.remove(style.navOpen);
     } else {
-      document.body.style.overflow = '';
+      $menuBtn.classList.add(style.btnOpen);
+      $nav.classList.add(style.navOpen);
     }
   }
 

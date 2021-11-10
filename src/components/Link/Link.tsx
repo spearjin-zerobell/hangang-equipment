@@ -26,6 +26,7 @@ export default class Link extends Node<Props> {
     }
 
     RouterContext.pathName = location.pathname;
+    window.scrollTo(0, 0);
   }
 
   template() {

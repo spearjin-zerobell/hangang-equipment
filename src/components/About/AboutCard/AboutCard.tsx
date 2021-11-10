@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './AboutCard.module.scss';
-console.log(style);
+
 interface Props {
   title: string;
   description: string;
@@ -17,7 +17,7 @@ export default class AboutCard extends Node<Props> {
     return (
       <li class={style.aboutCard}>
         <i class={`fas ${iconClassName} fa-3x`} title={iconTitle}></i>
-        <h3>{title}</h3>
+        <h4>{title}</h4>
         <p>{description}</p>
       </li>
     );
