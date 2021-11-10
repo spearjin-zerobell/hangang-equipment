@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './AboutCard.module.scss';
-console.log(style);
+
 interface Props {
   title: string;
   description: string;
