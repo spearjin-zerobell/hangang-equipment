@@ -1,3 +1,18 @@
+.land {
+  & h2 {
+    margin: 5px 0;
+    color: #5f5b5e;
+    font-size: 30px;
+  }
+
+  & h3 {
+    margin: 15px 0;
+    color: #5f5b5e;
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
 .land__main {
   height: 500px;
 }
@@ -23,12 +38,6 @@
   justify-content: center;
   padding: 40px 40px;
   background-color: white;
-}
-
-.landing__title {
-  margin: 5px 0;
-  color: #5f5b5e;
-  font-size: 30px;
 }
 
 .introudct__title {
@@ -75,7 +84,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 10px 0;
+  padding: 40px 0;
   background: linear-gradient(
     20deg,
     rgb(18, 103, 159) 0%,
@@ -90,6 +99,7 @@
 }
 
 .land__contact > .landing__title {
+  margin-bottom: 24px;
   color: white;
 }
 
@@ -120,7 +130,6 @@
   color: white;
   font-size: 18px;
   font-weight: 700;
-  border-radius: 8px;
   border: none;
   outline: none;
   cursor: pointer;

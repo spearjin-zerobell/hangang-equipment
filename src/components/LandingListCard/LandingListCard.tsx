@@ -17,7 +17,7 @@ export default class LandingListCard extends Node<Props> {
     return (
       <li class={styles.service}>
         <img src={service.img} class={styles.service__icon} />
-        <span class={styles.service__title}>{service.title}</span>
+        <h3 class={styles.service__title}>{service.title}</h3>
         <span class={styles.service__description}>{service.explain}</span>
         <span class={styles.service__detail}>자세히보기</span>
       </li>

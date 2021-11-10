@@ -9,6 +9,7 @@ interface CssExports {
   'introduce__divider': string;
   'introudct__description': string;
   'introudct__title': string;
+  'land': string;
   'land__contact': string;
   'land__introduce': string;
   'land__main': string;
