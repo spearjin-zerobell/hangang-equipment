@@ -1,8 +1,9 @@
+@use '@/styles/theme';
+
 .question {
   position: relative;
   padding: 30px 24px 80px;
-  // background-color: rgba(17, 144, 187, 0.6);
-  background-color: #ffeb60;
+  background-color: theme.$yellow;
   text-align: center;
   letter-spacing: 1px;
   overflow: hidden;
@@ -21,7 +22,7 @@
   overflow: hidden;
   max-height: 58px;
   margin: 10px 0;
-  padding: 15px;
+  padding: 10px;
   border-radius: 6px;
   background-color: white;
   transition: max-height 300ms;
@@ -44,7 +45,7 @@
     content: '';
     width: 90%;
     height: 1px;
-    background-color: black;
+    background-color: theme.$black;
     text-align: center;
   }
 }

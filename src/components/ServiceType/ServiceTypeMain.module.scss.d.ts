@@ -5,7 +5,6 @@ interface CssExports {
   'typeMain': string;
   'typeMainList': string;
   'typeMainList__item': string;
-  'typeMainTitle': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
