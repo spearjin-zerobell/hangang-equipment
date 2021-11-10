@@ -12,7 +12,7 @@ export interface Props {
 
     content: {
       name: string;
-      img: string;
+      img?: string;
     }[];
   };
 }
@@ -22,20 +22,20 @@ export default class ServiceTypeA extends Node<Props> {
   template() {
     const { info } = this.props;
     return (
-      <div class={styles.typeA}>
+      <section class={styles.typeA}>
         <i class={generateClassName(`fa + ${info.title.iconClassName}`, styles.title__icon)} />
-        <h2>{info.title.name}</h2>
+        <h3>{info.title.name}</h3>
         <ul class={styles.typeAList}>
-          {info.content.map(item => {
+          {info.content.map((item, i) => {
             return (
               <li class={styles.typeAList__card}>
                 <img src={item.img} class={styles.typeAList__img} />
-                <span>{item.name}</span>
+                <span>{i + 1 + '.' + ' ' + item.name}</span>
               </li>
             );
           })}
         </ul>
-      </div>
+      </section>
     );
   }
 }
