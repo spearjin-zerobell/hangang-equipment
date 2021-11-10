@@ -116,7 +116,7 @@ export default class Service extends Node<unknown, State> {
   template() {
     return (
       <fragment>
-        <Title color="#637281">서비스</Title>
+        <Title backgroundColor="#637281">서비스</Title>
         <div class={styles.service} onclick={this.onClickBtn}>
           <Tap />
           {this.state.type === 'main' ? (
