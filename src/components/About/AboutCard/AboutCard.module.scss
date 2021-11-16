@@ -1,9 +1,9 @@
 @use '@/styles/theme';
+@use '@/styles/common';
 
 .aboutCard {
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 6px 6px 10px #e0e0e0;
+  @include common.button-default;
+
   padding: 50px 30px 30px;
   display: flex;
   flex-direction: column;
@@ -14,14 +14,26 @@
   }
   h4 {
     margin: 0;
-    color: theme.$primary;
     font-size: 1rem;
-  }
-
-  svg {
-    color: theme.$primary;
   }
   p {
     width: 100%;
+    line-height: 1.6;
+    text-align: center;
+  }
+}
+
+.iconWrapper{
+  @include common.button-clicked;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  svg {
+    color: theme.$lightBlack;
+    height: 3rem;
+    width: 2.5rem !important;  
   }
 }
