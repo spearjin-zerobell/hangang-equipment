@@ -1,12 +1,23 @@
+@use '@/styles/common';
+@use '@/styles/theme';
+
 .title__section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
-  letter-spacing: 2px;
+  flex-direction: column;
+
   > h2 {
     margin: 0;
-    font-size: 1.8rem;
-    letter-spacing: 6px;
+    font-size: 1.875rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  > p {
+    line-height: 1.6;
+    margin: 0;
+    color: theme.$lightBlack;
   }
 }
