@@ -1,9 +1,17 @@
+@use './theme';
+
 * {
   font-family: 'Noto Sans KR', 'Lato', sans-serif;
 }
 
 body {
-  padding-top: 59px;
+  padding-top: 68.19px;
+  background-color: theme.$backgroundColor;
+  color: theme.$black;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 400;
 }
 
 .a11yHidden {
