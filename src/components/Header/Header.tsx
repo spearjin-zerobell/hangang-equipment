@@ -27,7 +27,7 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
       <header class={style.header}>
         <div class={style.headerBar}>
           <Link class={style.logo} to="/">
-            <img src={logoSrc} />
+            H
           </Link>
           <div
             tabindex="0"
