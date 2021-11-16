@@ -1,6 +1,8 @@
+@use './theme';
+
 @mixin button-default {
     box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff;
-    border: 0.0625rem solid #d1d9e6;
+    border: 0.0625rem solid theme.$borderColor;
     border-radius: 0.55rem;
 }
 
