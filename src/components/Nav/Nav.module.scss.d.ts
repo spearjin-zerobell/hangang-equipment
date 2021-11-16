@@ -3,7 +3,6 @@
 interface CssExports {
   'active': string;
   'nav': string;
-  'triAngle': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

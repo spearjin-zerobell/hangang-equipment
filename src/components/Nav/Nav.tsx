@@ -13,8 +13,13 @@ export default class Nav extends Node {
   template() {
     return (
       <nav class={style.nav}>
-        <span class={style.triAngle} aria-hidden="true" role="presentation"></span>
         <ul id="menu" role="menu" aria-labelledby="IDREF">
+          <li>
+            <Link classFunc={this.handleLinkActive.bind(this)} role="menuitem" to="/">
+              메인
+            </Link>
+            <img src={arrowSrc} />
+          </li>
           <li role="none">
             <Link classFunc={this.handleLinkActive.bind(this)} role="menuitem" to="/about">
               소개
