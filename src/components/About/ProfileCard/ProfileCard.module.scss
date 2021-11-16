@@ -1,60 +1,43 @@
+@use '@/styles/theme';
+@use '@/styles/common';
+
 .profile {
-  max-width: 300px;
-  margin: 0 auto;
+  @include common.button-default;
   position: relative;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  figcaption {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    letter-spacing: 1rem;
-    margin-left: 0.5rem;
-    width: 100%;
-    > h3,
-    h4 {
-      // width: 100%;
-      color: white;
-      text-align: center;
-    }
-
-    > h3 {
-      font-size: 1.4rem;
-    }
-    > h4 {
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin: 0.5rem 0;
+  text-align: center;
+  padding: 1.5rem;
+  padding-bottom: 3rem;
+  figure {
+    margin: 0;
+    padding-top: 6rem;
+    .imgWrapper {
+      @include common.button-clicked;
+      border-radius: 50%;
+      padding: 1rem;
+      position: absolute;
+      top: -4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        @include common.button-default;
+        background-color: theme.$backgroundColor;
+        width: 7.7rem;
+        height: 7.7rem;
+        object-fit: cover;
+        border-radius: 50%;
+        padding: 1rem;
+        border: 1px solid theme.$borderColor;
+      }
     }
   }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 2px;
-    left: 0;
-    background: rgba(0, 0, 0, 0.08);
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.04) 50%,
-      rgba(0, 0, 0, 0.08) 67%,
-      rgba(0, 0, 0, 0.33) 90%,
-      rgba(0, 0, 0, 0.67) 100%
-    );
-    opacity: 1;
-    transition: opacity 0.35s;
+  button {
+    @include common.button-default;
+    color: theme.$black;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    span {
+      margin-left: 0.5rem;
+    }
   }
 }
 
-.intro {
-  margin: 30px;
-}
