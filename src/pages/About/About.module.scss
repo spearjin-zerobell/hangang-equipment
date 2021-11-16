@@ -1,17 +1,21 @@
 @use '@/styles/theme';
+@use '@/styles/common';
 
 .main {
   color: theme.$black;
   > section {
-    padding: 30px;
+    padding-top: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4.5rem;
+  }
+  > section:not(:first-child) {
+    border-top: 1px solid #d1d9e6;
   }
 }
 
 .section {
   display: flex;
-  > *:not(:last-child) {
-    margin-bottom: 30px;
-  }
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -21,7 +25,8 @@
   }
   h3 {
     margin: 0;
-    font-size: 1.2rem;
+    margin-bottom: 5rem;
+    font-size: 1.4rem;
   }
 
   .p {
@@ -38,13 +43,4 @@
       margin-bottom: 30px;
     }
   }
-}
-
-.backgroundBlue {
-  background-color: theme.$primary;
-  color: white;
-}
-
-.backgroundGray {
-  background-color: theme.$lightGray;
 }
