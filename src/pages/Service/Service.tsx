@@ -117,7 +117,7 @@ export default class Service extends Node<unknown, State> {
     return (
       <fragment>
         <Title title='서비스'/>
-        <div class={styles.service} onclick={this.onClickBtn}>
+        <section class={styles.service} onclick={this.onClickBtn}>
           <Tap />
           {this.state.type === 'main' ? (
             <ServiceTypeMain info={this.state.data} />
@@ -127,7 +127,7 @@ export default class Service extends Node<unknown, State> {
             <ServiceTypeB info={this.state.data} />
           )}
           <ServiceQuestion questionInfo={questionInfo[this.state.tab]} />
-        </div>
+        </section>
       </fragment>
     );
   }
