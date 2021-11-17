@@ -23,10 +23,10 @@ export default class ProfileCard extends Node<Props> {
             <h4>직위 - {position}</h4>
           </figcaption>
         </figure>
-        <button>
+        <a href={`tel:${process.env.callNumber}`}>
           <i class="fas fa-phone-alt"></i>
-          <span>상담하기</span>
-        </button>
+          <span>전화상담</span>
+        </a>
       </li>
     );
   }
