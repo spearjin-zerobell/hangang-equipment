@@ -13,6 +13,7 @@ export interface Props {
     content: {
       name: string;
       img?: string;
+      description?: string;
     }[];
   };
 }
@@ -21,7 +22,6 @@ export interface Props {
 export default class ServiceTypeB extends Node<Props> {
   template() {
     const { info } = this.props;
-    console.log(info);
     return (
       <div class={styles.typeB}>
         <i class={generateClassName(`fa + ${info.title.iconClassName}`, styles.title__icon)} />
@@ -31,7 +31,7 @@ export default class ServiceTypeB extends Node<Props> {
             return (
               <li class={styles.typeBList__card}>
                 <img src={item.img} class={generateClassName(styles.typeBList__img)} />
-                <span>{item.name}</span>
+                <p>{item.description}</p>
               </li>
             );
           })}
