@@ -1,3 +1,5 @@
+@use '@/styles/common';
+
 .typeB {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,7 @@
     margin: 0;
     letter-spacing: 4px;
   }
-  margin: 25px 14px;
+  margin: 25px 0;
   > *:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -26,16 +28,17 @@
   padding: 0;
   list-style: none;
   > *:not(:last-child) {
-    margin-bottom: 14px;
+    margin-bottom: 1rem;
   }
 }
 
 .typeBList__card {
+  @include common.button-clicked;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin-top: 5px;
   border-radius: 20px;
 
   > span {
@@ -46,17 +49,19 @@
 }
 
 .typeBList__card:nth-child(odd) {
-  transform: translateX(-10%);
+  transform: translateX(-8%);
 }
 
 .typeBList__card:nth-child(even) {
-  transform: translateX(10%);
+  transform: translateX(8%);
 }
 
 .typeBList__img {
   width: 100%;
   height: calc(50vw - 16px);
-  padding-bottom: 5px;
+  max-height: 356px;
+  margin-bottom: 0.8rem;
+  border-radius: 0.8rem;
 }
 
 .typeBDescription {

@@ -35,10 +35,7 @@ export default class Landing extends Node {
   template() {
     return (
       <div class={styles.land}>
-        <section class={styles.land__main}>
-          <img src={mainImg} class={styles.main__img} />
-        </section>
-
+        <img src={mainImg} class={styles.main__img} />
         <section class={styles.land__introduce}>
           <h2 class={styles.landing__title}>한강설비</h2>
           <p class={styles.introudct__description}>
