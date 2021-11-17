@@ -1,0 +1,23 @@
+{
+  "Class Component extends Node": {
+    "prefix": "tscc",
+    "body": [
+      "import { dom } from '@/utils/babel';",
+      "import { Node } from '@/components';",
+      "",
+      "interface Props {}",
+      "interface State {}",
+      "",
+      "/** @jsx dom */",
+      "export default class ${TM_FILENAME_BASE} extends Node<Props, State> {",
+      "  state = {};",
+      "",
+      "  template() {",
+      "    return <div></div>;",
+      "  }",
+      "}",
+      ""
+    ],
+    "description": "Class Component extends Node"
+  }
+}

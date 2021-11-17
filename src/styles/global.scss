@@ -1,0 +1,53 @@
+@use './theme';
+
+* {
+  font-family: 'Noto Sans KR', 'Lato', sans-serif;
+}
+
+body {
+  padding-top: 68.19px;
+  background-color: theme.$backgroundColor;
+  color: theme.$black;
+}
+
+section {
+  padding-top: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d1d9e6;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+.a11yHidden {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(1, 1, 0, .7);
+}

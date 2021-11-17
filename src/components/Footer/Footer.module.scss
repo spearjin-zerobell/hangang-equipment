@@ -1,0 +1,29 @@
+@use '@/styles/theme';
+
+.copyright {
+  height: 150px;
+  align-items: center;
+  color: theme.$black;
+  display: flex;
+  flex-direction: column;
+  > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  font-size: 0.7rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 50px 16px;
+  text-align: center;
+  a {
+    appearance: none;
+    background-color: transparent;
+    border-width: 0;
+    color: inherit;
+    font-weight: 700;
+    display: inline-block;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+}

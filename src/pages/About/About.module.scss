@@ -1,0 +1,80 @@
+@use '@/styles/theme';
+@use '@/styles/common';
+
+.main {
+  max-width: 1600px;
+  margin: 0 auto;
+  > section {
+    padding-bottom: 4.5rem;
+  }
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  > h2 {
+    margin: 10px;
+    font-size: 1.7rem;
+  }
+  > h3 {
+    margin: 0;
+    margin-bottom: 5rem;
+    font-size: 1.4rem;
+  }
+
+  .p {
+    font-size: 0.9rem;
+    margin: 0;
+    width: 100%;
+  }
+  > ul {
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: theme.$tablet) {
+  .section {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        width: calc(50% - 1rem);
+        // display: inline-block;
+      }
+      li:nth-child(odd) {
+        margin-right: 2rem;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: theme.$desktop) {
+  .section {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      li {
+        width: calc((100% / 3) - 2rem);
+        margin-right: 2rem;
+      }
+
+      li:last-child {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

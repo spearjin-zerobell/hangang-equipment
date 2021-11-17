@@ -1,0 +1,45 @@
+@use '@/styles/theme';
+@use '@/styles/common';
+
+.profile {
+  @include common.button-default;
+  position: relative;
+  text-align: center;
+  padding: 1.5rem;
+  padding-bottom: 3rem;
+  figure {
+    margin: 0;
+    padding-top: 6rem;
+    .imgWrapper {
+      @include common.button-clicked;
+      border-radius: 50%;
+      padding: 1rem;
+      position: absolute;
+      top: -4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        @include common.button-default;
+        background-color: theme.$backgroundColor;
+        width: 7.7rem;
+        height: 7.7rem;
+        object-fit: cover;
+        border-radius: 50%;
+        padding: 1rem;
+        border: 1px solid theme.$borderColor;
+      }
+    }
+  }
+  a {
+    @include common.button-default;
+    display: inline-block;
+    text-decoration: none;
+    color: theme.$black;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}
+

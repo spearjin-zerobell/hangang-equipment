@@ -1,0 +1,39 @@
+@use '@/styles/theme';
+@use '@/styles/common';
+
+.aboutCard {
+  @include common.button-default;
+
+  padding: 50px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  h4 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  p {
+    width: 100%;
+    line-height: 1.6;
+    text-align: center;
+  }
+}
+
+.iconWrapper{
+  @include common.button-clicked;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  svg {
+    color: theme.$lightBlack;
+    height: 3rem;
+    width: 2.5rem !important;  
+  }
+}

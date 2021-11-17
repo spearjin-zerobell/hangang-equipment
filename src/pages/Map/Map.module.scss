@@ -1,0 +1,35 @@
+@use '@/styles/theme.scss';
+@use '@/styles/common';
+
+.way {
+  dt {
+    margin: 20px 0;
+    font-weight: 500;
+  }
+
+  dd {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+
+  dd:not(:last-child){
+    border-bottom: 1px solid theme.$borderColor;
+  }
+
+  dl {
+    @include common.button-default;
+    margin: 0 auto;
+    max-width: 690px;
+    margin-bottom: 0;
+    padding: 1.5rem;
+    color: theme.$black;
+  }
+}
+
+.wayTitle {
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 2.5rem;
+  margin: 0;
+  font-weight: 400;
+}

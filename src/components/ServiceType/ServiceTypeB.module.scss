@@ -1,0 +1,85 @@
+@use '@/styles/common';
+
+.typeB {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > h2 {
+    margin: 0;
+    letter-spacing: 4px;
+  }
+  margin: 25px 0;
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.title__icon {
+  font-size: 20px;
+  color: #555555;
+}
+
+.typeBList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.typeBList__card {
+  @include common.button-clicked;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  border-radius: 20px;
+
+  > span {
+    padding: 2px 5px;
+    font-size: 14px;
+    text-align: center;
+  }
+  > h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    text-align: center;
+    margin: 0;
+    > .bold {
+      font-weight: 500;
+    }
+  }
+}
+.typeB__description {
+  display: flex;
+  align-items: center;
+}
+
+.typeBList__card:nth-child(odd) {
+  transform: translateX(-4%);
+}
+
+.typeBList__card:nth-child(even) {
+  transform: translateX(4%);
+}
+
+.typeBList__img {
+  width: 100%;
+  height: calc(50vw - 16px);
+  max-height: 356px;
+  margin-bottom: 0.8rem;
+  border-radius: 0.8rem;
+}
+
+.typeBDescription {
+  background-color: white;
+}
