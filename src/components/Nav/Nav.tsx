@@ -5,7 +5,11 @@ import arrowSrc from './assets/arrow.svg';
 
 /** @jsx dom */
 
-export default class Nav extends Node {
+interface Props {
+  idRef?: string;
+}
+
+export default class Nav extends Node<Props> {
   handleLinkActive(isActive: boolean) {
     return isActive ? style.active : '';
   }
@@ -13,7 +17,7 @@ export default class Nav extends Node {
   template() {
     return (
       <nav class={style.nav}>
-        <ul id="menu" role="menu" aria-labelledby="IDREF">
+        <ul id="menu" role="menu" aria-labelledby={this.props.idRef}>
           <li>
             <Link classFunc={this.handleLinkActive.bind(this)} role="menuitem" to="/">
               메인

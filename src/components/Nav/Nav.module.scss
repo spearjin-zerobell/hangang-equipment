@@ -5,11 +5,10 @@
   top: -100vh;
   width: 100%;
   height: 100vh;
-  // background-color: #1190bb;
   background-color: theme.$backgroundColor;
-  // box-shadow: 0 -30px 17px rgb(0 0 0 / 30%);
   transition: top 0.5s;
   flex-grow: 1;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -53,6 +52,42 @@
       width: calc(100% - 32px);
       height: 1px;
       background-color: lightgray;
+    }
+  }
+}
+
+@media screen and (min-width: theme.$tablet) {
+  .nav {
+  position: static;
+  height: auto;
+  ul {
+      justify-content: right;
+      flex-direction: row;
+      height: 100%;
+      li:before {
+        display: none;
+      }
+      li {
+        > a.active {
+          color: theme.$black;
+          background: transparent;
+          // &:before {
+          //   content: '';
+          //   position: absolute;
+          //   bottom: 1rem;
+          //   left: 50%;
+          //   transform: translateX(-50%);
+          //   height: 4px; 
+          //   border-radius: 5px;
+          //   background-color: theme.$middleGray;
+          //   width: calc(100% - 42px);
+          // }
+        }
+        > img {
+          right: 0;
+          top: 15px;
+        }
+      }
     }
   }
 }
