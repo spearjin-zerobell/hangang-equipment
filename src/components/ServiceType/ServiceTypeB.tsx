@@ -30,11 +30,8 @@ export default class ServiceTypeB extends Node<Props> {
           {info.content.map(item => {
             return (
               <li class={styles.typeBList__card}>
-                <div class={styles.typeB__description}>
-                  <h4>{item.name}</h4>
-                  <p>{item.description}</p>
-                </div>
                 <img src={item.img} class={generateClassName(styles.typeBList__img)} />
+                <p>{item.description}</p>
               </li>
             );
           })}

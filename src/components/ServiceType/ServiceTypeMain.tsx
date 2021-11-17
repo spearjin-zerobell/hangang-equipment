@@ -17,13 +17,13 @@ interface Props {
 }
 
 /** @jsx dom */
-export default class ServiceTypeMain extends Node<Props, State> {
+export default class ServiceTypeMain extends Node<Props> {
   template() {
     const { info } = this.props;
     return (
       <div class={styles.typeMain}>
         <i class={generateClassName(`fa + ${info.title.iconClassName}`, styles.title__icon)}></i>
-        <h3 class={styles.typeMainTitle}>{info.title.name}</h3>
+        <h3>{info.title.name}</h3>
         <ul class={styles.typeMainList}>
           {info.content.map(item => {
             return (

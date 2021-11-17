@@ -1,3 +1,5 @@
+@use '@/styles/common';
+
 .typeB {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,7 @@
     margin: 0;
     letter-spacing: 4px;
   }
-  margin: 25px 14px;
+  margin: 25px 0;
   > *:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -26,34 +28,56 @@
   padding: 0;
   list-style: none;
   > *:not(:last-child) {
-    margin-bottom: 14px;
+    margin-bottom: 1rem;
   }
 }
 
 .typeBList__card {
+  @include common.button-clicked;
+  padding: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 6px;
-  overflow: hidden;
+  width: 85%;
+  border-radius: 20px;
+
+  > span {
+    padding: 2px 5px;
+    font-size: 14px;
+    text-align: center;
+  }
+  > h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    text-align: center;
+    margin: 0;
+    > .bold {
+      font-weight: 500;
+    }
+  }
+}
+.typeB__description {
+  display: flex;
+  align-items: center;
 }
 
-.typeB__description {
-  width: 80%;
-  text-align: center;
-  color: #111111;
-  > p {
-    color: #555555;
-    padding: 0 5px;
-  }
+.typeBList__card:nth-child(odd) {
+  transform: translateX(-4%);
+}
+
+.typeBList__card:nth-child(even) {
+  transform: translateX(4%);
 }
 
 .typeBList__img {
   width: 100%;
-  height: calc(50vw);
+  height: calc(50vw - 16px);
+  max-height: 356px;
+  margin-bottom: 0.8rem;
+  border-radius: 0.8rem;
 }
 
 .typeBDescription {

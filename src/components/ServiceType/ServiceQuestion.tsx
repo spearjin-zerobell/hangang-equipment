@@ -27,15 +27,18 @@ export default class ServiceQuestion extends Node<Props> {
           {questionInfo.map(item => {
             return (
               <li class={generateClassName('target', styles.question__card)} onclick={this.onClickToggle}>
-                <h4 class={styles.question__card__title}>{item.question}</h4>
+                <h4 class={styles.question__card__title}>
+                  {item.question}
+                  <i class="fas fa-plus fa-sm"></i>
+                </h4>
                 <p class={styles.question__content}>{item.answer}</p>
               </li>
             );
           })}
         </ul>
-        <button class={styles.question__contact}>
+        <a href={`tel:${process.env.callNumber}`} class={styles.question__contact}>
           <i class="fas fa-phone-alt"></i>전화상담
-        </button>
+        </a>
       </section>
     );
   }

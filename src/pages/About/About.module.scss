@@ -1,27 +1,27 @@
 @use '@/styles/theme';
+@use '@/styles/common';
 
 .main {
-  color: theme.$black;
+  max-width: 1600px;
+  margin: 0 auto;
   > section {
-    padding: 30px;
+    padding-bottom: 4.5rem;
   }
 }
 
 .section {
   display: flex;
-  > *:not(:last-child) {
-    margin-bottom: 30px;
-  }
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  h2 {
+  > h2 {
     margin: 10px;
     font-size: 1.7rem;
   }
-  h3 {
+  > h3 {
     margin: 0;
-    font-size: 1.2rem;
+    margin-bottom: 5rem;
+    font-size: 1.4rem;
   }
 
   .p {
@@ -29,22 +29,52 @@
     margin: 0;
     width: 100%;
   }
-  ul {
+  > ul {
+    justify-content: space-around;
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
     li:not(:last-child) {
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
     }
   }
 }
 
-.backgroundBlue {
-  background-color: theme.$primary;
-  color: white;
+@media screen and (min-width: theme.$tablet) {
+  .section {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        width: calc(50% - 1rem);
+        // display: inline-block;
+      }
+      li:nth-child(odd) {
+        margin-right: 2rem;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
-.backgroundGray {
-  background-color: theme.$lightGray;
+@media screen and (min-width: theme.$desktop) {
+  .section {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      li {
+        width: calc((100% / 3) - 2rem);
+        margin-right: 2rem;
+      }
+
+      li:last-child {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+  }
 }

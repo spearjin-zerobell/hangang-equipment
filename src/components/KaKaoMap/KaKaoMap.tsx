@@ -86,7 +86,7 @@ export default class KaKaoMap extends Node {
         // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
         window.kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(this.map, marker, infoWindow));
         window.kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infoWindow));
-      }
+        }
       this.bounds.extend(lating);
     });
 
@@ -108,7 +108,7 @@ export default class KaKaoMap extends Node {
 
         // const content = `<div style="padding: 7px 0px 9px 0px; width: 150px; text-align: center;">한강설비</div>`;
         const content = `
-          <div style='width: 280px; padding: 1rem;'>
+          <div style= 'width: 265px; height: auto; padding: 1rem;'>
             <div class="${style.infoTitle}">
               <span>한강종합설비</span>
               <a href="https://map.naver.com/v5/directions/14149565.670374472,4477793.306416428,%ED%95%9C%EA%B0%95%EC%A2%85%ED%95%A9%EC%84%A4%EB%B9%84,12815085,PLACE_POI/-/-/transit?c=14148632.8961413,4477793.3058404,15,0,0,0,dh" target="_blank" class="link">길찾기</a>
@@ -142,12 +142,13 @@ export default class KaKaoMap extends Node {
         <div
           id="map"
           style={{
-            'max-width': '500px',
             width: '100%',
             'max-height': '500px',
             height: '100%',
             position: 'relative',
             overflow: 'hidden',
+            'border-radius': '0.55rem',
+            border: '1px solid #c1c9d6'
           }}
         >
           <span class="a11yHidden">한강설비 지도</span>

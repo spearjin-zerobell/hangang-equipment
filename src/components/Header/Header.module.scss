@@ -1,30 +1,36 @@
+@use '@/styles/theme';
+@use '@/styles/common';
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
+  background-color: theme.$backgroundColor;
+  box-shadow: 0 0 15px rgb(0 0 0 / 15%);
 }
 .headerBar {
+  padding: 1rem 0.5rem 1rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  box-shadow: 0 0 15px rgb(0 0 0 / 30%);
   position: relative;
   z-index: 2;
+  background-color: theme.$backgroundColor;
 }
 
 .logo {
-  width: 100px;
-  img {
-    width: 100%;
-  }
+  padding: 0.1rem 0.8rem;
+  font-size: 1.7rem;
+  color: theme.$black;
+  font-weight: 500;
+  @include common.button-default;
 }
 
 .menuToggle {
   cursor: pointer;
-  padding: 20px;
+  padding: 0.5rem;
   span,
   &::after,
   &::before {
@@ -32,7 +38,7 @@
     content: '';
     width: 22px;
     height: 3px;
-    background-color: black;
+    background-color: theme.$black;
     transition: transform 0.3s;
   }
   span {
@@ -53,8 +59,20 @@
 }
 
 .navOpen {
-  top: 73px;
+  top: 68px;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+@media screen and (min-width: theme.$tablet) {
+  .header {
+    display: flex;
+    align-items: stretch;
+    padding-right: 1rem;
+  }
+
+  .menuToggle {
+    display: none;
+  }
 }

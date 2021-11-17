@@ -46,7 +46,7 @@ export const dom = (
       } else if (typeof child === 'string' || typeof child === 'number') {
         const $textNode = document.createTextNode(child);
         $elem.appendChild($textNode);
-      } else if (child.toString().slice(8, -1) === 'DocumentFragment') {
+      } else if (child?.toString().slice(8, -1) === 'DocumentFragment') {
         $elem.appendChild(child);
       } else if (typeof child === 'object') {
         throw new Error('객체 타입을 children으로 입력할 수 없습니다.');

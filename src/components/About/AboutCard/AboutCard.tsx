@@ -16,7 +16,9 @@ export default class AboutCard extends Node<Props> {
 
     return (
       <li class={style.aboutCard}>
-        <i class={`fas ${iconClassName} fa-3x`} title={iconTitle}></i>
+        <div class={style.iconWrapper}>
+          <i class={`fas ${iconClassName} fa-3x`} title={iconTitle}></i>
+        </div>
         <h4>{title}</h4>
         <p>{description}</p>
       </li>

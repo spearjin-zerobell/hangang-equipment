@@ -9,8 +9,11 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
     isOpenMenu: true,
   };
 
+  navButtonId = 'menubutton';
+
   handleToggleMenu(e: Event) {
-    const $menuBtn = e.target as HTMLElement;
+    const $target = e.target as HTMLElement;
+    const $menuBtn = $target.closest(`.${style.menuToggle}`);
     const $nav = $menuBtn.closest('header').querySelector('[class*=nav]') as HTMLElement;
 
     if ($nav.classList.contains(style.navOpen)) {
@@ -27,7 +30,7 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
       <header class={style.header}>
         <div class={style.headerBar}>
           <Link class={style.logo} to="/">
-            <img src={logoSrc} />
+            H
           </Link>
           <div
             tabindex="0"
@@ -37,11 +40,12 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
             aria-controls="menu"
             aria-haspopup="menu"
             aria-expanded="false"
+            id='menubutton'
           >
             <span role="presentation"></span>
           </div>
         </div>
-        <Nav />
+        <Nav idRef={this.navButtonId}/>
       </header>
     );
   }

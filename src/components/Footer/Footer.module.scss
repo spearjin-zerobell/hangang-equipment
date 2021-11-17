@@ -3,14 +3,13 @@
 .copyright {
   height: 150px;
   align-items: center;
-  background-color: theme.$black;
-  color: theme.$gray;
+  color: theme.$black;
   display: flex;
   flex-direction: column;
   > *:not(:last-child) {
     margin-bottom: 10px;
   }
-  font-size: 0.625rem;
+  font-size: 0.7rem;
   justify-content: center;
   line-height: 1;
   padding: 50px 16px;
