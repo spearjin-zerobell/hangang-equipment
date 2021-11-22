@@ -14,21 +14,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  > h2 {
-    margin: 10px;
-    font-size: 1.7rem;
-  }
-  > h3 {
-    margin: 0;
-    margin-bottom: 5rem;
-    font-size: 1.4rem;
-  }
-
-  .p {
-    font-size: 0.9rem;
-    margin: 0;
-    width: 100%;
-  }
+  
   > ul {
     justify-content: space-around;
     list-style: none;
