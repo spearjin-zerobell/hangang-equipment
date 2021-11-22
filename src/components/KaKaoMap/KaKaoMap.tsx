@@ -86,7 +86,7 @@ export default class KaKaoMap extends Node {
         // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
         window.kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(this.map, marker, infoWindow));
         window.kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infoWindow));
-        }
+      }
       this.bounds.extend(lating);
     });
 
@@ -148,7 +148,7 @@ export default class KaKaoMap extends Node {
             position: 'relative',
             overflow: 'hidden',
             'border-radius': '0.55rem',
-            border: '1px solid #c1c9d6'
+            border: '1px solid #c1c9d6',
           }}
         >
           <span class="a11yHidden">한강설비 지도</span>

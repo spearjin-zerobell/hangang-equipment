@@ -2,7 +2,6 @@
 // Please do not change this file!
 interface CssExports {
   'main': string;
-  'p': string;
   'section': string;
 }
 export const cssExports: CssExports;

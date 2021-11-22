@@ -7,12 +7,11 @@
   left: 0;
   right: 0;
   z-index: 100;
+  padding: 0.7rem;
   background-color: theme.$backgroundColor;
   box-shadow: 0 0 15px rgb(0 0 0 / 15%);
 }
 .headerBar {
-  padding: 1rem 0.5rem 1rem 1rem;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -21,11 +20,15 @@
 }
 
 .logo {
-  padding: 0.1rem 0.8rem;
-  font-size: 1.7rem;
-  color: theme.$black;
-  font-weight: 500;
   @include common.button-default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem 0.8rem;
+  color: theme.$black;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .menuToggle {
@@ -59,7 +62,8 @@
 }
 
 .navOpen {
-  top: 68px;
+  opacity: 100;
+  top: 58px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -69,7 +73,7 @@
   .header {
     display: flex;
     align-items: stretch;
-    padding-right: 1rem;
+    justify-content: space-between;
   }
 
   .menuToggle {

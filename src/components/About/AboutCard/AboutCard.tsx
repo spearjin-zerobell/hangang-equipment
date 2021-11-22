@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './AboutCard.module.scss';
-
+import { generateClassName } from '@/utils';
 interface Props {
   title: string;
   description: string;
@@ -16,9 +16,7 @@ export default class AboutCard extends Node<Props> {
 
     return (
       <li class={style.aboutCard}>
-        <div class={style.iconWrapper}>
-          <i class={`fas ${iconClassName} fa-3x`} title={iconTitle}></i>
-        </div>
+        <i class={generateClassName(`fas ${iconClassName} fa-3x`, style.iconShadow)} title={iconTitle}></i>
         <h4>{title}</h4>
         <p>{description}</p>
       </li>
