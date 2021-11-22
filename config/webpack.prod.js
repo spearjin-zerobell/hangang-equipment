@@ -4,7 +4,8 @@ const path = require('path');
 const __ROOT = process.cwd();
 
 module.exports = merge(common, {
-  mode: 'development',
+  mode: 'production',
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__ROOT, 'dist'),
