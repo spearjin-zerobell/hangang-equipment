@@ -4,6 +4,7 @@
   "description": "한강설비 소개 홈페이지 제작 프로젝트입니다.",
   "scripts": {
     "start": "webpack serve --config ./config/webpack.dev.js",
+    "build:serve": "webpack serve --config ./config/webpack.prod.js",
     "build": "webpack --config ./config/webpack.prod.js"
   },
   "repository": {
