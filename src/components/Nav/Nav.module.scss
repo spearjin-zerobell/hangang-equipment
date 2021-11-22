@@ -1,20 +1,25 @@
 @use '@/styles/theme';
+@use '@/styles/common';
 
 .nav {
   position: absolute;
   top: -100vh;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 100vh;
+  opacity: 0;
   background-color: theme.$backgroundColor;
-  transition: top 0.5s;
+  transition: opacity 0.5s;
   flex-grow: 1;
 
   ul {
+    @include common.button-default;
+    margin: 0.7rem;
     display: flex;
     flex-direction: column;
     list-style: none;
     padding: 0;
-    margin: 0;
     color: theme.$black;
     li {
       position: relative;
@@ -23,7 +28,7 @@
       align-items: center;
       a {
         width: 100%;
-        padding: 21px;
+        padding: 1rem 0.7rem;
         z-index: 1;
       }
 
@@ -58,34 +63,43 @@
 
 @media screen and (min-width: theme.$tablet) {
   .nav {
-  position: static;
-  height: auto;
-  ul {
+    position: static;
+    height: auto;
+    width: auto;
+    flex-grow: 0;
+    opacity: 100;
+    ul {
+      @include common.button-default;
+      display: inline-flex;
       justify-content: right;
       flex-direction: row;
       height: 100%;
+      margin: 0;
+      position: relative;
+      // padding: 0.2rem;
       li:before {
         display: none;
       }
       li {
+        padding: 3px;
         > a.active {
+          @include common.button-clicked;
+          border-radius: 0.35rem;
           color: theme.$black;
           background: transparent;
-          // &:before {
-          //   content: '';
-          //   position: absolute;
-          //   bottom: 1rem;
-          //   left: 50%;
-          //   transform: translateX(-50%);
-          //   height: 4px; 
-          //   border-radius: 5px;
-          //   background-color: theme.$middleGray;
-          //   width: calc(100% - 42px);
-          // }
+        }
+        > a {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0.7rem;
         }
         > img {
-          right: 0;
-          top: 15px;
+          display: none;
+        }
+
+        &:not(:last-child) {
+          margin-right: 0.7rem;
         }
       }
     }
