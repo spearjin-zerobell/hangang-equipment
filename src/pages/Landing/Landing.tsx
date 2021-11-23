@@ -2,7 +2,7 @@ import { dom } from '@/utils/babel';
 import { LandingListCard, Node } from '@/components';
 import styles from './Landing.module.scss';
 
-import mainImg from './assets/img/main.jpeg';
+import mainImg from './assets/img/main.jpg';
 import service1 from './assets/icon/service1.svg';
 import service2 from './assets/icon/service2.svg';
 import service3 from './assets/icon/service3.svg';
@@ -35,7 +35,12 @@ export default class Landing extends Node {
   template() {
     return (
       <div class={styles.land}>
-        <img src={mainImg} class={styles.main__img} />
+        <div
+          style={{ background: `url(${mainImg})`, 'background-position': 'top', 'background-size': 'cover' }}
+          role="img"
+          aria-label="한강건설 회사 소개 이미지"
+          class={styles.main__img}
+        />
         <section class={styles.land__introduce}>
           <h2 class={styles.landing__title}>한강설비</h2>
           <p class={styles.introudct__description}>
