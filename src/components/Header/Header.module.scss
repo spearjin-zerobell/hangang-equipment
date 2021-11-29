@@ -8,15 +8,14 @@
   right: 0;
   z-index: 100;
   padding: 0.5rem;
-  background-color: theme.$backgroundColor;
-  box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+  background-color: rgba(225, 225, 233, 0.93);
+  box-shadow: 0 5px 20px rgb(0 0 0 / 25%);
 }
 .headerBar {
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 2;
-  background-color: theme.$backgroundColor;
   display: flex;
 }
 

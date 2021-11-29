@@ -4,11 +4,7 @@ import style from './Header.module.scss';
 import logoSrc from './assets/img/logo.png';
 
 /** @jsx dom */
-export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
-  state = {
-    isOpenMenu: true,
-  };
-
+export default class Header extends Node {
   navButtonId = 'menubutton';
 
   handleToggleMenu(e: Event) {
@@ -40,12 +36,12 @@ export default class Header extends Node<unknown, { isOpenMenu: boolean }> {
             aria-controls="menu"
             aria-haspopup="menu"
             aria-expanded="false"
-            id='menubutton'
+            id="menubutton"
           >
             <span role="presentation"></span>
           </div>
         </div>
-        <Nav idRef={this.navButtonId}/>
+        <Nav idRef={this.navButtonId} />
       </header>
     );
   }
