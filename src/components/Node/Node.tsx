@@ -9,7 +9,7 @@ interface commonProps {
 }
 
 /** @jsx dom */
-export default class Node<Props = unknown, State = unknown> {
+export default class Node<Props = undefined, State = undefined> {
   $node: ChildNode | ChildNode[];
   props?: Props & commonProps;
   state?: State;
@@ -32,6 +32,7 @@ export default class Node<Props = unknown, State = unknown> {
     // document fragment는 replaceChild에 의해 자식이 모두 사라지기 때문에
     // this.$node를 자식으로 갱신하려면 그 전에 변수에 저장해 놓아야 한다.
     let $contents: ChildNode | ChildNode[];
+
     if ($newNode?.nodeName === '#document-fragment') {
       $contents = Array.from($newNode.childNodes || []);
     } else {
@@ -52,9 +53,8 @@ export default class Node<Props = unknown, State = unknown> {
 
   render() {
     const $newNode = this.template();
-    if ($newNode.nodeName === '#document-fragment') {
-      this.$node = Array.from($newNode.childNodes || []);
-    } else this.$node = $newNode;
+
+    this.$node = $newNode.nodeName === '#document-fragment' ? Array.from($newNode.childNodes || []) : $newNode;
 
     setTimeout(() => {
       this.componentDidMount();
@@ -71,4 +71,6 @@ export default class Node<Props = unknown, State = unknown> {
     }
     return;
   }
+
+  static component = Symbol.for('yjComponent');
 }
