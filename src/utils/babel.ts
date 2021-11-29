@@ -4,13 +4,9 @@ export interface propsType {
   [prop: string]: any;
 }
 
-export const dom = (
-  tag: string | (new (props: propsType) => { render: () => HTMLElement }),
-  props: propsType,
-  ...children: HTMLElement[]
-) => {
+export const dom = (tag: string | typeof Node, props: propsType, ...children: HTMLElement[]) => {
   // components
-  if (typeof tag === 'function' && tag?.prototype.template) {
+  if (typeof tag === 'function' && tag?.component === Symbol.for('yjComponent')) {
     const Component = new tag({ ...props, children });
     return Component && Component.render();
   }
