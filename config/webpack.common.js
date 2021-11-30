@@ -3,6 +3,7 @@ const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const __ROOT = process.cwd();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const postCssLoader = {
   loader: 'postcss-loader',
@@ -93,6 +94,7 @@ module.exports = {
       favicon: './favicon.png',
       kakaoAPIKey: process.env.kakaoAPIKey,
     }),
-    new Dotenv()
+    new Dotenv(),
+    new BundleAnalyzerPlugin(),
   ],
 };
