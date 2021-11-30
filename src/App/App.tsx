@@ -9,10 +9,10 @@ import '@/styles/index.scss';
 export default class App extends Node {
   template() {
     return (
-      <fragment>
+      <div>
         <Router />
         <Footer />
-      </fragment>
+      </div>
     );
   }
 }

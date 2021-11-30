@@ -116,8 +116,8 @@ export default class Service extends Node<unknown, State> {
 
   template() {
     return (
-      <fragment>
-        <Title title='서비스'/>
+      <main>
+        <Title title="서비스" />
         <section class={styles.service} onclick={this.onClickBtn}>
           <Tap />
           {this.state.type === 'main' ? (
@@ -129,7 +129,7 @@ export default class Service extends Node<unknown, State> {
           )}
           <ServiceQuestion questionInfo={questionInfo[this.state.tab]} />
         </section>
-      </fragment>
+      </main>
     );
   }
 }

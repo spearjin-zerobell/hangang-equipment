@@ -5,15 +5,17 @@ export interface propsType {
 }
 
 export const dom = (tag: string | typeof Node, props: propsType, ...children: HTMLElement[]) => {
-  // components
+  // 1. components
   if (typeof tag === 'function' && tag?.component === Symbol.for('yjComponent')) {
     const Component = new tag({ ...props, children });
-    return Component && Component.render();
+    Component.render();
+    return Component && Component.$node;
   }
 
-  // intrinsic Elements
-  const $elem = tag === 'fragment' ? document.createDocumentFragment() : document.createElement(tag as string);
-  // attributes
+  // 2. intrinsic Elements
+  const $elem = document.createElement(tag as string);
+
+  // 2.1 attributes
   if ($elem instanceof HTMLElement) {
     Object.entries(props || {}).forEach(([propName, value]) => {
       if (!value) return;
@@ -30,10 +32,10 @@ export const dom = (tag: string | typeof Node, props: propsType, ...children: HT
     });
   }
 
-  type childType = HTMLElement | Text | DocumentFragment | string;
+  type childType = HTMLElement | Text | string;
 
-  // chilren
-  const addChild = (child: childType[] | childType) => {
+  // 2.2 children
+  const addChild = (child: childType[] | childType | Promise<HTMLElement>) => {
     try {
       if (Array.isArray(child)) {
         child.forEach(c => addChild(c));
@@ -42,8 +44,8 @@ export const dom = (tag: string | typeof Node, props: propsType, ...children: HT
       } else if (typeof child === 'string' || typeof child === 'number') {
         const $textNode = document.createTextNode(child);
         $elem.appendChild($textNode);
-      } else if (child?.toString().slice(8, -1) === 'DocumentFragment') {
-        $elem.appendChild(child);
+      } else if (child?.then) {
+        child.then(resolve => addChild(resolve));
       } else if (typeof child === 'object') {
         throw new Error('객체 타입을 children으로 입력할 수 없습니다.');
       } else if (typeof child === 'function') {
@@ -52,7 +54,7 @@ export const dom = (tag: string | typeof Node, props: propsType, ...children: HT
         return child;
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
       return;
     }
   };
