@@ -1,8 +1,10 @@
+@use '@/styles/common';
+
 .typeMain {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px
+  margin-top: 25px;
 }
 
 .title__icon {
@@ -11,6 +13,8 @@
 }
 
 .typeMainList {
+  @include common.button-clicked;
+  border-radius: 0.55rem;
   display: flex;
   flex-direction: column;
   align-items: center;

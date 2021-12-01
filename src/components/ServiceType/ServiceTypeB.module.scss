@@ -33,7 +33,7 @@
 }
 
 .typeBList__card {
-  @include common.button-clicked;
+  @include common.button-default;
   padding: 20px;
   display: flex;
   flex-direction: column;
