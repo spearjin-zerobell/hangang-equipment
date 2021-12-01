@@ -9,7 +9,7 @@ export const dom = (tag: string | typeof Node, props: propsType, ...children: HT
   if (typeof tag === 'function' && tag?.component === Symbol.for('yjComponent')) {
     const Component = new tag({ ...props, children });
     Component.render();
-    return Component && Component.$node;
+    return Component.$node;
   }
 
   // 2. intrinsic Elements
@@ -35,7 +35,7 @@ export const dom = (tag: string | typeof Node, props: propsType, ...children: HT
   type childType = HTMLElement | Text | string;
 
   // 2.2 children
-  const addChild = (child: childType[] | childType | Promise<HTMLElement>) => {
+  const addChild = (child: childType[] | childType) => {
     try {
       if (Array.isArray(child)) {
         child.forEach(c => addChild(c));
@@ -44,12 +44,9 @@ export const dom = (tag: string | typeof Node, props: propsType, ...children: HT
       } else if (typeof child === 'string' || typeof child === 'number') {
         const $textNode = document.createTextNode(child);
         $elem.appendChild($textNode);
-      } else if (child?.then) {
-        child.then(resolve => addChild(resolve));
       } else if (typeof child === 'object') {
+        console.log(child);
         throw new Error('객체 타입을 children으로 입력할 수 없습니다.');
-      } else if (typeof child === 'function') {
-        return child;
       } else {
         return child;
       }
