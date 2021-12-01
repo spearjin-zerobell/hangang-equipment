@@ -11,6 +11,10 @@ import ServiceQuestion from '@/components/ServiceType/ServiceQuestion';
 import { heatingInfo, leakingInfo, mainInfo, pipeInfo, questionInfo, repairsInfo } from './ServiceData';
 import Title from '@/components/Title/Title';
 
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faHammer, faFaucet, faSun, faTint, faTools } from '@fortawesome/free-solid-svg-icons';
+import { IconLookup } from '@fortawesome/fontawesome-common-types';
+
 const serviceData = {
   main: mainInfo,
   first: pipeInfo,
@@ -21,27 +25,40 @@ const serviceData = {
 
 /** @jsx dom */
 class Tap extends Node {
+  componentDidMount() {
+    this.setIcons();
+  }
+
+  setIcons() {
+    const $serviceTabs = document.querySelector(`.${styles.serviceTabs}`);
+    const svgs = [faHammer, faFaucet, faSun, faTint, faTools];
+
+    Array.from($serviceTabs.children).forEach(($li, index) => {
+      ($li.firstChild as HTMLElement).innerHTML = icon(svgs[index] as IconLookup, { transform: { size: 20 } }).html[0];
+    });
+  }
+
   template() {
     return (
-      <ul class={styles.service__list}>
+      <ul class={styles.serviceTabs}>
         <li class={generateClassName('tab', styles.service__card, styles.selected)} data-type="main">
-          <i class={generateClassName('fas fa-hammer', styles.card__icon)} />
+          <span class={generateClassName('fas fa-hammer', styles.card__icon)} />
           <span>전체</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="pipe">
-          <i class={generateClassName('fas fa-faucet', styles.card__icon)} />
+          <span class={generateClassName('fas fa-faucet', styles.card__icon)} />
           <span>배관</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="heating">
-          <i class={generateClassName('fas fa-sun', styles.card__icon)} />
+          <span class={generateClassName('fas fa-sun', styles.card__icon)} />
           <span>난방</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="leaking">
-          <i class={generateClassName('fas fa-tint', styles.card__icon)} />
+          <span class={generateClassName('fas fa-tint', styles.card__icon)} />
           <span>누수</span>
         </li>
         <li class={generateClassName('tab', styles.service__card)} data-type="repairs">
-          <i class={generateClassName('fas fa-tools', styles.card__icon)} />
+          <span class={generateClassName('fas fa-tools', styles.card__icon)} />
           <span>집수리</span>
         </li>
       </ul>

@@ -1,12 +1,12 @@
-import pipeProcess1 from './assets/img/process1.jpeg';
-import pipeProcess2 from './assets/img/process2.jpeg';
-import pipeProcess3 from './assets/img/process3.jpeg';
-import pipeProcess4 from './assets/img/process4.jpeg';
-import pipeProcess5 from './assets/img/process5.jpeg';
-import pipeProcess6 from './assets/img/process6.jpeg';
+import pipeProcess1 from './assets/img/process1.jpg';
+import pipeProcess2 from './assets/img/process2.jpg';
+import pipeProcess3 from './assets/img/process3.jpg';
+import pipeProcess4 from './assets/img/process4.jpg';
+import pipeProcess5 from './assets/img/process5.jpg';
+import pipeProcess6 from './assets/img/process6.jpg';
 
-import before1 from './assets/img/before1.jpeg';
-import after1 from './assets/img/after1.jpeg';
+import before1 from './assets/img/before1.jpg';
+import after1 from './assets/img/after1.jpg';
 
 export const mainInfo = {
   title: {

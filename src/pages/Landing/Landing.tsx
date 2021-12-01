@@ -8,6 +8,9 @@ import service2 from './assets/icon/service2.svg';
 import service3 from './assets/icon/service3.svg';
 import service4 from './assets/icon/service4.svg';
 import { generateClassName } from '@/utils';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { IconLookup } from '@fortawesome/fontawesome-common-types';
 
 /** @jsx dom */
 export default class Landing extends Node {
@@ -31,6 +34,17 @@ export default class Landing extends Node {
       },
     ],
   };
+
+  componentDidMount() {
+    this.setIcon();
+  }
+
+  setIcon() {
+    const $Icon = document.querySelector(`.${styles.contact__img}`);
+    const iconTemplete = icon(faPhoneVolume as IconLookup, {}).html;
+
+    $Icon.innerHTML = iconTemplete[0];
+  }
 
   template() {
     return (
@@ -58,7 +72,7 @@ export default class Landing extends Node {
         </section>
 
         <section class={styles.land__contact}>
-          <i class={generateClassName('fas fa-phone-volume', styles.contact__img)}> </i>
+          <span class={generateClassName('fas fa-phone-volume', styles.contact__img)}> </span>
           <h2 class={styles.landing__title}>전화 상담</h2>
           <span class={styles.contact__call}>031-000-0000</span>
           <span class={styles.contact__call}>010-0000-0000</span>

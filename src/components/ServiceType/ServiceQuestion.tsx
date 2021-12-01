@@ -2,6 +2,9 @@ import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './ServiceQuestion.module.scss';
 import { generateClassName } from '@/utils';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faPlus, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { IconLookup } from '@fortawesome/fontawesome-common-types';
 
 interface Props {
   questionInfo: {
@@ -12,6 +15,23 @@ interface Props {
 
 /** @jsx dom */
 export default class ServiceQuestion extends Node<Props> {
+  componentDidMount() {
+    this.setIcon();
+  }
+
+  setIcon() {
+    const plusIconTemplete = icon(faPlus as IconLookup, {}).html;
+    const plusIcons = document.querySelectorAll(`.fas.fa-plus.fa-sm`);
+
+    plusIcons.forEach($plusIcon => {
+      $plusIcon.innerHTML = plusIconTemplete[0];
+    });
+
+    const phoneIconTemplete = icon(faPhoneAlt as IconLookup, { transform: { size: 13 } }).html;
+    const $phoneIcon = document.querySelector(`.fas.fa-phone-alt`);
+    $phoneIcon.innerHTML = phoneIconTemplete[0];
+  }
+
   onClickToggle = (e: Event) => {
     const target = e.target as HTMLElement;
     const answer = target.closest('.target');
@@ -29,7 +49,7 @@ export default class ServiceQuestion extends Node<Props> {
               <li class={generateClassName('target', styles.question__card)} onclick={this.onClickToggle}>
                 <h4 class={styles.question__card__title}>
                   {item.question}
-                  <i class="fas fa-plus fa-sm"></i>
+                  <span class="fas fa-plus fa-sm" />
                 </h4>
                 <p class={styles.question__content}>{item.answer}</p>
               </li>
@@ -37,7 +57,8 @@ export default class ServiceQuestion extends Node<Props> {
           })}
         </ul>
         <a href={`tel:${process.env.callNumber}`} class={styles.question__contact}>
-          <i class="fas fa-phone-alt"></i>전화상담
+          <span class="fas fa-phone-alt" />
+          전화상담
         </a>
       </section>
     );

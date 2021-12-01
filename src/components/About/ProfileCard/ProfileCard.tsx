@@ -1,6 +1,9 @@
 import { dom } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './ProfileCard.module.scss';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { IconLookup } from '@fortawesome/fontawesome-common-types';
 
 interface Props {
   imgSrc: string;
@@ -10,6 +13,16 @@ interface Props {
 
 /** @jsx dom */
 export default class ProfileCard extends Node<Props> {
+  componentDidMount() {
+    this.setIcon();
+  }
+
+  setIcon() {
+    const iconTemplete = icon(faPhoneAlt as IconLookup, {}).html;
+    const $Icon = document.querySelector(`.fas.fa-phone-alt`);
+    $Icon.innerHTML = iconTemplete[0];
+  }
+
   template() {
     const { imgSrc, name, position } = this.props;
     return (
@@ -24,7 +37,7 @@ export default class ProfileCard extends Node<Props> {
           </figcaption>
         </figure>
         <a href={`tel:${process.env.callNumber}`}>
-          <i class="fas fa-phone-alt"></i>
+          <span class="fas fa-phone-alt"></span>
           <span>전화상담</span>
         </a>
       </li>

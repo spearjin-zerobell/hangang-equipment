@@ -11,12 +11,11 @@
     margin-left: 5px;
   }
   > div {
-    @include common.button-default;
     padding: 1.5rem 0;
   }
 }
 
-.service__list {
+.serviceTabs {
   display: flex;
   justify-content: space-around;
   padding: 0;

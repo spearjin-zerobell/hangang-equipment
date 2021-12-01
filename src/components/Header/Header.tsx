@@ -1,7 +1,6 @@
 import { dom } from '@/utils/babel';
 import { Link, Node, Nav } from '@/components';
 import style from './Header.module.scss';
-import logoSrc from './assets/img/logo.png';
 
 /** @jsx dom */
 export default class Header extends Node {

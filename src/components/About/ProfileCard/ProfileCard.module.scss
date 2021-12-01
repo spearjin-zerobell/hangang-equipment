@@ -37,9 +37,8 @@
     color: theme.$black;
     margin-top: 1rem;
     padding: 0.7rem 1rem;
-    span {
+    span:last-child {
       margin-left: 0.5rem;
     }
   }
 }
-

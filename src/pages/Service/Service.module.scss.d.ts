@@ -4,8 +4,8 @@ interface CssExports {
   'card__icon': string;
   'selected': string;
   'service': string;
+  'serviceTabs': string;
   'service__card': string;
-  'service__list': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
