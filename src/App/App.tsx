@@ -10,7 +10,6 @@ export default class App extends Node {
     return (
       <div>
         <Router />
-        <Footer />
       </div>
     );
   }
