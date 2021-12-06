@@ -2,13 +2,15 @@
 // Please do not change this file!
 interface CssExports {
   'bold': string;
+  'description__work': string;
   'title__icon': string;
   'typeB': string;
-  'typeBDescription': string;
   'typeBList': string;
   'typeBList__card': string;
+  'typeBList__description': string;
   'typeBList__img': string;
   'typeB__description': string;
+  'work__icon': string;
 }
 export const cssExports: CssExports;
 export default cssExports;
