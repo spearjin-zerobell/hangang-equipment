@@ -27,6 +27,7 @@
       display: flex;
       align-items: center;
       a {
+        margin: 0.3rem 0.5rem;
         width: 100%;
         padding: 1rem 0.7rem;
         z-index: 1;
@@ -34,8 +35,10 @@
 
       a.active {
         color: theme.$primary;
-
-        background: rgba(17, 144, 187, 0.05);
+        margin: 0.5em;
+        @include common.button-clicked;
+        border-radius: 0.5rem;
+        background: rgba(109, 93, 252, 0.01);
       }
 
       > img {
@@ -47,16 +50,6 @@
         height: 20px;
         transform: translateY(50%) rotate(-90deg);
       }
-    }
-
-    li:not(:last-child)::before {
-      position: absolute;
-      bottom: 0;
-      left: 16px;
-      content: '';
-      width: calc(100% - 32px);
-      height: 1px;
-      background-color: lightgray;
     }
   }
 }
@@ -83,15 +76,17 @@
         padding: 3px;
         > a.active {
           @include common.button-clicked;
+          margin: 0;
           border-radius: 0.35rem;
-          color: theme.$black;
+          color: theme.$primary;
           background: transparent;
         }
         > a {
+          margin: 0;
           height: 100%;
           display: flex;
           align-items: center;
-          padding: 0.5rem;
+          padding: 0.7rem;
         }
         > img {
           display: none;
