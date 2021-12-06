@@ -29,7 +29,7 @@ export default class ProfileCard extends Node<Props> {
       <li class={style.profile}>
         <figure>
           <div class={style.imgWrapper}>
-            <img src={imgSrc} alt="" />
+            <img src={imgSrc} alt="직원 사진" />
           </div>
           <figcaption>
             <h3>{name}</h3>

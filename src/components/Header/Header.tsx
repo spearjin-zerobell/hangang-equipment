@@ -37,6 +37,7 @@ export default class Header extends Node {
             aria-expanded="false"
             id="menubutton"
           >
+            <span class='a11yHidden'>메뉴 버튼</span>
             <span role="presentation"></span>
           </div>
         </div>
