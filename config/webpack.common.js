@@ -4,6 +4,7 @@ const path = require('path');
 const __ROOT = process.cwd();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const postCssLoader = {
   loader: 'postcss-loader',
@@ -86,6 +87,11 @@ module.exports = {
     alias: {
       '@': path.resolve(__ROOT, 'src'),
     },
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
