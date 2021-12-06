@@ -1,7 +1,7 @@
 import { dom } from '@/utils/babel';
 import { LandingListCard, Node, Title } from '@/components';
 import styles from './Landing.module.scss';
-import mainImg from './assets/img/main.jpeg';
+import mainImg from './assets/img/main.jpg';
 
 import { generateClassName } from '@/utils';
 import { serviceData } from './data';
