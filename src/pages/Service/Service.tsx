@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './Service.module.scss';
 import { generateClassName } from '@/utils';
@@ -23,7 +23,7 @@ const serviceData = {
   four: repairsInfo,
 };
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 class Tap extends Node {
   componentDidMount() {
     this.setIcons();

@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './AboutCard.module.scss';
 import { generateClassName } from '@/utils';
@@ -12,13 +12,14 @@ interface Props {
   iconTitle: string;
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class AboutCard extends Node<Props> {
   componentDidMount() {
     this.setIcon();
   }
+
   setIcon() {
-    const { title, description, iconClassName, iconTitle } = this.props;
+    const { iconClassName, iconTitle } = this.props;
     let targetIcon;
 
     switch (iconClassName) {
@@ -39,7 +40,8 @@ export default class AboutCard extends Node<Props> {
     }).html;
 
     const $Icon = document.querySelector(`.${iconClassName}`);
-    $Icon.innerHTML = iconTemplete[0];
+    console.log($Icon);
+    // $Icon.innerHTML = iconTemplete?.[0];
   }
 
   template() {

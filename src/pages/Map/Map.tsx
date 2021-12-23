@@ -1,16 +1,13 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { KaKaoMap, Node, Title } from '@/components';
 import style from './Map.module.scss';
-import { generateClassName } from '@/utils';
 
-interface Props {}
-interface State {}
-/** @jsx dom */
-export default class Map extends Node<Props, State> {
+/** @jsx transJSXtoDOM */
+export default class Map extends Node {
   template() {
     return (
-      <main class={style.main}>
-        <Title title='찾아오시는 길' />
+      <main>
+        <Title title="찾아오시는 길" />
         <section>
           <div class={style.way}>
             <dl>

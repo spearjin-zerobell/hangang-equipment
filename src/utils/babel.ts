@@ -4,12 +4,14 @@ export interface propsType {
   [prop: string]: any;
 }
 
-export const dom = (tag: string | typeof Node, props: propsType, ...children: HTMLElement[]) => {
+// @babel-plugin-transform-react-jsx에 의해 JSX 문법이 컴파일되고 이하 함수가 실행됩니다.
+// JSX를 DOM으로 바꾸는 함수
+export const transJSXtoDOM = (tag: string | typeof Node, props: propsType, ...children: HTMLElement[]) => {
   // 1. components
-  if (typeof tag === 'function' && tag?.component === Symbol.for('yjComponent')) {
-    const Component = new tag({ ...props, children });
-    Component.render();
-    return Component.$node;
+  if (typeof tag === 'function' && tag?.component === Symbol.for('JSComponent')) {
+    const component = new tag({ ...props, children });
+    component.render();
+    return component.$node;
   }
 
   // 2. intrinsic Elements

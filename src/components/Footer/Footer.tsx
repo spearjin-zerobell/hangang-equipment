@@ -1,14 +1,9 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './Footer.module.scss';
 
-interface Props {}
-interface State {}
-
-/** @jsx dom */
-export default class Footer extends Node<Props, State> {
-  state = {};
-
+/** @jsx transJSXtoDOM */
+export default class Footer extends Node {
   template() {
     return (
       <footer class={style.copyright}>

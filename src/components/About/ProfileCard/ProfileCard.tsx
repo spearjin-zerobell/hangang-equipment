@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './ProfileCard.module.scss';
 import { icon } from '@fortawesome/fontawesome-svg-core';
@@ -11,7 +11,7 @@ interface Props {
   position: string;
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class ProfileCard extends Node<Props> {
   componentDidMount() {
     this.setIcon();
@@ -20,7 +20,8 @@ export default class ProfileCard extends Node<Props> {
   setIcon() {
     const iconTemplete = icon(faPhoneAlt as IconLookup, {}).html;
     const $Icon = document.querySelector(`.fas.fa-phone-alt`);
-    $Icon.innerHTML = iconTemplete[0];
+    console.log($Icon);
+    // $Icon.innerHTML = iconTemplete[0];
   }
 
   template() {

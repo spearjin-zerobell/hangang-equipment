@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './ServiceQuestion.module.scss';
 import { generateClassName } from '@/utils';
@@ -13,7 +13,7 @@ interface Props {
   }[];
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class ServiceQuestion extends Node<Props> {
   componentDidMount() {
     this.setIcon();

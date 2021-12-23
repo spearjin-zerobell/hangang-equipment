@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './LandingListCard.module.scss';
 
@@ -10,7 +10,7 @@ interface Props {
   };
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class LandingListCard extends Node<Props> {
   template() {
     const { service } = this.props;

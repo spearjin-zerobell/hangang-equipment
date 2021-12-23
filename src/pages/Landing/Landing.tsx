@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { LandingListCard, Node } from '@/components';
 import styles from './Landing.module.scss';
 
@@ -12,7 +12,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { IconLookup } from '@fortawesome/fontawesome-common-types';
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class Landing extends Node {
   state = {
     serviceData: [
@@ -42,8 +42,10 @@ export default class Landing extends Node {
   setIcon() {
     const $Icon = document.querySelector(`.${styles.contact__img}`);
     const iconTemplete = icon(faPhoneVolume as IconLookup, {}).html;
-
-    $Icon.innerHTML = iconTemplete[0];
+    console.log(iconTemplete);
+    // if (iconTemplete) {
+    //   $Icon.innerHTML = iconTemplete[0];
+    // }
   }
 
   template() {

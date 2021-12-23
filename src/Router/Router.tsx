@@ -1,8 +1,8 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Footer, Header, Node } from '@/components';
 import { RouterContext } from '@/GlobalState/GlobalState';
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export class Router extends Node<
   unknown,
   {
@@ -57,7 +57,7 @@ export class Router extends Node<
 
   template() {
     const { ComponentMached } = this.state;
-
+    console.log(ComponentMached);
     return (
       <div>
         <Header />

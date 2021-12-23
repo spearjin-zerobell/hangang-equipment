@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './ServiceTypeB.module.scss';
 import { generateClassName } from '@/utils';
@@ -20,7 +20,7 @@ export interface Props {
   };
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class ServiceTypeB extends Node<Props> {
   componentDidMount() {
     this.setIcon();

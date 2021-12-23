@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 
 interface commonProps {
   children?: HTMLElement[] | HTMLElement | ((...pram: unknown[]) => HTMLElement);
@@ -8,7 +8,7 @@ interface commonProps {
   onclick?: (e: Event) => void;
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class Node<Props = unknown, State = unknown> {
   $node: ChildNode;
   props?: Props & commonProps;
@@ -52,5 +52,5 @@ export default class Node<Props = unknown, State = unknown> {
     return;
   }
 
-  static component = Symbol.for('yjComponent');
+  static component = Symbol.for('JSComponent');
 }
