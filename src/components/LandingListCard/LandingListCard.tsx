@@ -1,10 +1,11 @@
 import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './LandingListCard.module.scss';
+import { generateClassName } from '@/utils';
 
 interface Props {
   service: {
-    img: string;
+    iconClassName: string;
     title: string;
     explain: string;
   };
@@ -16,8 +17,10 @@ export default class LandingListCard extends Node<Props> {
     const { service } = this.props;
     return (
       <li class={styles.service}>
-        <img src={service.img} class={styles.service__icon} />
-        <h3 class={styles.service__title}>{service.title}</h3>
+        <div>
+          <i class={generateClassName(`fa + ${service.iconClassName}`, styles.service__icon)} />
+        </div>
+        <h4 class={styles}>{service.title}</h4>
         <span class={styles.service__description}>{service.explain}</span>
         <span class={styles.service__detail}>자세히보기</span>
       </li>

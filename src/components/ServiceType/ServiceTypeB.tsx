@@ -13,6 +13,7 @@ export interface Props {
     };
 
     content: {
+      work: string;
       name: string;
       img?: string;
       description?: string;
@@ -57,7 +58,14 @@ export default class ServiceTypeB extends Node<Props> {
             return (
               <li class={styles.typeBList__card}>
                 <img src={item.img} class={generateClassName(styles.typeBList__img)} />
-                <p>{item.description}</p>
+                <div class={styles.typeBList__description}>
+                  <div class={styles.description__work}>
+                    <i class={generateClassName(styles.work__icon, 'fas fa-hard-hat')}></i>
+                    <p>{item.work}</p>
+                  </div>
+                  <h4>{item.name}</h4>
+                  <p>{item.description}</p>
+                </div>
               </li>
             );
           })}

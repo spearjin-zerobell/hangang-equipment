@@ -104,14 +104,16 @@ export const leakingInfo = {
 
   content: [
     {
-      name: '시공전',
-      description: '한파로 배관이 얼어버리는 문제 발생',
       img: before1,
+      work: '시공전',
+      name: '배관동파수리',
+      description: '한파로 배수관 배관이 얼어버리는 문제 발생 하여, 화장실, 씽크대 물이 안나오는 현상이 발생 하였다',
     },
     {
-      name: '시공후',
-      description: '얼음을 녹이고 부서진 파이브 수리',
       img: after1,
+      work: '시공후',
+      name: '배관동파수리',
+      description: '얼음을 녹이고 손상된 파이프 부위를 부품으로 새로 교체한 하였습니다',
     },
   ],
 };
@@ -124,14 +126,16 @@ export const repairsInfo = {
 
   content: [
     {
-      name: '시공전',
-      description: '한파로 배관이 얼어버리는 문제 발생',
       img: before1,
+      work: '시공전',
+      name: '배관동파수리',
+      description: '한파로 배수관 배관이 얼어버리는 문제 발생 하여, 화장실, 씽크대 물이 안나오는 현상이 발생 하였다',
     },
     {
-      name: '시공후',
-      description: '얼음을 녹이고 부서진 파이브 수리',
       img: after1,
+      work: '시공후',
+      name: '배관동파수리',
+      description: '얼음을 녹이고 손상된 파이프 부위를 부품으로 새로 교체한 하였습니다',
     },
   ],
 };

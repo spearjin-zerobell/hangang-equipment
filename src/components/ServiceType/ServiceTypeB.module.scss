@@ -21,25 +21,21 @@
 
 .typeBList {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
-  > *:not(:last-child) {
-    margin-bottom: 1rem;
-  }
 }
 
 .typeBList__card {
   @include common.button-default;
   padding: 20px;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 85%;
+  // justify-content: center;
   border-radius: 20px;
 
   > span {
@@ -73,13 +69,33 @@
 }
 
 .typeBList__img {
+  box-sizing: content-box;
   width: 100%;
-  height: calc(50vw - 16px);
-  max-height: 356px;
-  margin-bottom: 0.8rem;
-  border-radius: 0.8rem;
+  height: 200px;
+  padding: 0px;
+  border-radius: 8px;
+}
+
+.typeBList__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  .description__work {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
 }
 
 .typeBDescription {
   background-color: white;
+}
+
+.work__icon {
+  margin-right: 6px;
+  color: #555555;
 }
