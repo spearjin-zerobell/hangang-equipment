@@ -1,15 +1,20 @@
 import { Node } from '@/components';
 
-export interface propsType {
-  [prop: string]: any;
+export interface anyObjectInterface {
+  [propKey: string]: any;
 }
 
+const transObjStyleToString = (styles: anyObjectInterface) => {
+  return Object.entries(styles)
+    .map(([styleKey, styleValue]) => `${styleKey}: ${styleValue}`)
+    .join(';');
+};
+
 // @babel-plugin-transform-react-jsx에 의해 JSX 문법이 컴파일되고 이하 함수가 실행됩니다.
-// JSX를 DOM으로 바꾸는 함수
-export const transJSXtoDOM = (tag: string | typeof Node, props: propsType, ...children: HTMLElement[]) => {
+export const transJSXtoDOM = (tag: string | typeof Node, attrs: anyObjectInterface, ...children: HTMLElement[]) => {
   // 1. components
   if (typeof tag === 'function' && tag?.component === Symbol.for('JSComponent')) {
-    const component = new tag({ ...props, children });
+    const component = new tag({ ...attrs, children });
     component.render();
     return component.$node;
   }
@@ -17,26 +22,23 @@ export const transJSXtoDOM = (tag: string | typeof Node, props: propsType, ...ch
   // 2. intrinsic Elements
   const $elem = document.createElement(tag as string);
 
-  // 2.1 attributes
+  // 2.1 attributes 등록
   if ($elem instanceof HTMLElement) {
-    Object.entries(props || {}).forEach(([propName, value]) => {
-      if (!value) return;
-      else if (propName === 'style') {
-        const styles = Object.entries(props[propName])
-          .map(([key, value]) => `${key}: ${value}`)
-          .join(';');
-        $elem.setAttribute('style', styles);
-      } else if (propName.startsWith('on') && propName in window) {
-        $elem.addEventListener(propName.substr(2), value);
-      } else {
-        $elem.setAttribute(propName, props[propName]);
+    Object.entries(attrs || {}).forEach(([attrKey, attrValue]) => {
+      if (!attrValue) return;
+
+      if (attrKey.startsWith('on') && attrKey in window) {
+        $elem.addEventListener(attrKey.slice(2), attrValue);
+        return;
       }
+
+      $elem.setAttribute(attrKey, attrValue === 'style' ? transObjStyleToString(attrValue) : attrValue);
     });
   }
 
   type childType = HTMLElement | Text | string;
 
-  // 2.2 children
+  // 2.2 children 등록
   const addChild = (child: childType[] | childType) => {
     try {
       if (Array.isArray(child)) {
@@ -47,7 +49,6 @@ export const transJSXtoDOM = (tag: string | typeof Node, props: propsType, ...ch
         const $textNode = document.createTextNode(child);
         $elem.appendChild($textNode);
       } else if (typeof child === 'object') {
-        console.log(child);
         throw new Error('객체 타입을 children으로 입력할 수 없습니다.');
       } else {
         return child;
