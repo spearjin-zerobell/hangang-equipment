@@ -1,7 +1,7 @@
 import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import styles from './LandingListCard.module.scss';
-import { generateClassName, stringToDOMArray } from '@/utils';
+import { stringToDOMArray } from '@/utils';
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faFaucet, faSun, faTint, faTools } from '@fortawesome/free-solid-svg-icons';
 import { IconLookup } from '@fortawesome/fontawesome-common-types';
