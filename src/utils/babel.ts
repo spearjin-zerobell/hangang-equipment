@@ -36,22 +36,23 @@ export const transJSXtoDOM = (tag: string | typeof Node, attrs: anyObjectInterfa
     });
   }
 
-  type childType = HTMLElement | Text | string;
+  type childType = ChildNode | HTMLElement | Text | string;
 
   // 2.2 children 등록
   const addChild = (child: childType[] | childType) => {
     try {
       if (Array.isArray(child)) {
         child.forEach(c => addChild(c));
-      } else if (child instanceof HTMLElement || child instanceof Text) {
-        $elem.appendChild(child);
       } else if (typeof child === 'string' || typeof child === 'number') {
         const $textNode = document.createTextNode(child);
         $elem.appendChild($textNode);
+      } else if (child.nodeType === 1 || child.nodeType === 3) {
+        // HTMLElement 이거나 TextNode의 경우
+        $elem.appendChild(child);
       } else if (typeof child === 'object') {
         throw new Error('객체 타입을 children으로 입력할 수 없습니다.');
       } else {
-        return child;
+        return;
       }
     } catch (e) {
       console.error(e);
