@@ -1,10 +1,11 @@
 import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './AboutCard.module.scss';
-import { generateClassName } from '@/utils';
+import { stringToDOMArray } from '@/utils';
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faHandsHelping, faUserTie, faTools } from '@fortawesome/free-solid-svg-icons';
 import { IconLookup } from '@fortawesome/fontawesome-common-types';
+
 interface Props {
   title: string;
   description: string;
@@ -14,11 +15,7 @@ interface Props {
 
 /** @jsx transJSXtoDOM */
 export default class AboutCard extends Node<Props> {
-  componentDidMount() {
-    this.setIcon();
-  }
-
-  setIcon() {
+  getIconDOM() {
     const { iconClassName, iconTitle } = this.props;
     let targetIcon;
 
@@ -39,17 +36,15 @@ export default class AboutCard extends Node<Props> {
       title: iconTitle,
     }).html;
 
-    const $Icon = document.querySelector(`.${iconClassName}`);
-    console.log($Icon);
-    // $Icon.innerHTML = iconTemplete?.[0];
+    return stringToDOMArray(iconTemplete[0]);
   }
 
   template() {
-    const { title, description, iconClassName, iconTitle } = this.props;
+    const { title, description } = this.props;
 
     return (
       <li class={style.aboutCard}>
-        <span class={generateClassName(`${iconClassName}`, style.iconShadow)}></span>
+        {this.getIconDOM.call(this)}
         <h4>{title}</h4>
         <p>{description}</p>
       </li>
