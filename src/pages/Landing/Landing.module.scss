@@ -4,6 +4,7 @@
 .land {
   max-width: 1600px;
   margin: auto;
+  text-align: center;
 }
 
 .main__img {
@@ -43,7 +44,6 @@
   justify-content: center;
   position: relative;
 
-  color: #5f5b5e;
   font-size: 24px;
   font-weight: 500;
   margin: auto;
@@ -61,14 +61,23 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-}
+  padding: 1rem;
+  a {
+    @include common.button-default;
+    display: inline-block;
+    text-decoration: none;
+    color: theme.$black;
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.66em;
+    span:last-child {
+      margin-left: 0.5rem;
+    }
 
-.contact__img {
-  width: 25px;
-  height: 25px;
-  margin-right: 5px;
-  font-size: 25px;
-  color: #5f5b5e;
+    &:hover {
+      color: theme.$primary;
+    }
+  }
 }
 
 .contact__call {
@@ -78,25 +87,27 @@
 
 .contact__email {
   font-size: 13px;
-  color: #5f5b5e;
 }
 
 .contact__btn {
   @include common.button-default;
-  // @include common.button-clicked;
 
   width: 125px;
   height: 40px;
   margin: 20px 0;
-  color: #5f5b5e;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   border: none;
   outline: none;
   cursor: pointer;
-  transition: all 300ms ease-in;
+  padding-bottom: 0.1rem;
   &:hover {
+    color: theme.$primary;
   }
+}
+
+.contact__text {
+  padding-bottom: 0.5rem;
 }
 
 @media screen and (min-width: theme.$tablet) {
@@ -106,7 +117,6 @@
       flex-wrap: wrap;
       li {
         width: calc(50% - 1rem);
-        // display: inline-block;
       }
       li:nth-child(odd) {
         margin-right: 2rem;
