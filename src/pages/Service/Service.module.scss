@@ -24,15 +24,14 @@
 
 .service__card {
   @include common.button-default;
+  cursor: pointer;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: calc(100% - 0.8rem);
-  // padding-top: 10px;
   border: none;
-  // background-color: white;
   > span {
     padding-top: 7px;
     font-size: 12px;
@@ -43,7 +42,6 @@
 }
 
 .selected {
-  // background-color: #f1f1f1;
   @include common.button-clicked;
 }
 
