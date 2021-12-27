@@ -46,7 +46,7 @@ export const transJSXtoDOM = (tag: string | typeof Node, attrs: anyObjectInterfa
       } else if (typeof child === 'string' || typeof child === 'number') {
         const $textNode = document.createTextNode(child);
         $elem.appendChild($textNode);
-      } else if (child.nodeType === 1 || child.nodeType === 3) {
+      } else if (child?.nodeType === 1 || child?.nodeType === 3) {
         // HTMLElement 이거나 TextNode의 경우
         $elem.appendChild(child);
       } else if (typeof child === 'object') {

@@ -15,7 +15,7 @@ interface Props {
 
 /** @jsx transJSXtoDOM */
 export default class AboutCard extends Node<Props> {
-  getIconDOM() {
+  getIconArray() {
     const { iconClassName, iconTitle } = this.props;
     let targetIcon;
 
@@ -44,7 +44,7 @@ export default class AboutCard extends Node<Props> {
 
     return (
       <li class={style.aboutCard}>
-        {this.getIconDOM.call(this)}
+        {this.getIconArray.call(this)}
         <h4>{title}</h4>
         <p>{description}</p>
       </li>

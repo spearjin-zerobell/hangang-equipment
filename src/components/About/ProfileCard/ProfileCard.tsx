@@ -4,6 +4,7 @@ import style from './ProfileCard.module.scss';
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { IconLookup } from '@fortawesome/fontawesome-common-types';
+import { stringToDOMArray } from '@/utils';
 
 interface Props {
   imgSrc: string;
@@ -13,15 +14,9 @@ interface Props {
 
 /** @jsx transJSXtoDOM */
 export default class ProfileCard extends Node<Props> {
-  componentDidMount() {
-    this.setIcon();
-  }
-
-  setIcon() {
+  getIconDOM() {
     const iconTemplete = icon(faPhoneAlt as IconLookup, {}).html;
-    const $Icon = document.querySelector(`.fas.fa-phone-alt`);
-    console.log($Icon);
-    // $Icon.innerHTML = iconTemplete[0];
+    return stringToDOMArray(iconTemplete[0]);
   }
 
   template() {
@@ -38,7 +33,7 @@ export default class ProfileCard extends Node<Props> {
           </figcaption>
         </figure>
         <a href={`tel:${process.env.callNumber}`}>
-          <span class="fas fa-phone-alt"></span>
+          {this.getIconDOM.call(this)}
           <span>전화상담</span>
         </a>
       </li>

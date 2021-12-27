@@ -13,10 +13,6 @@
   cursor: pointer;
 }
 
-.service:hover {
-  color: red;
-}
-
 .service__icon {
   @include common.button-clicked;
 
@@ -29,6 +25,10 @@
   height: 2.5rem;
   padding: 1.5rem;
   color: theme.$lightBlack;
+}
+
+.service:hover {
+  color: red;
 }
 
 .service__description {
