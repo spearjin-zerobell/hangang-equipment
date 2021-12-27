@@ -1,5 +1,5 @@
 export const serviceData = [
-  { iconClassName: 'fa-faucet', title: '배관설비', explain: '배관이 문제시 사용하는 서비스' },
+  { iconClassName: 'fa-faucet', title: '배관설비', iconTitle: '배관', explain: '배관이 문제시 사용하는 서비스' },
   {
     iconClassName: 'fa-sun',
     title: '누수설비',
