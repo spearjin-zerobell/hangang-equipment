@@ -38,7 +38,7 @@ export default class Landing extends Node {
         </section>
 
         <section class={styles.land__contact}>
-          <h2 class={styles.landing__title}>전화 상담</h2>
+          <h3 class={styles.landing__title}>전화 상담</h3>
           <div class={styles.contact__description}>
             <p class={styles.contact__call}>고객센터: 031-000-0000</p>
             <p class={styles.contact__call}>대표번호: 010-0000-0000</p>
