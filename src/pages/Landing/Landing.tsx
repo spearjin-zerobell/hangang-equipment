@@ -38,11 +38,11 @@ export default class Landing extends Node {
         </section>
 
         <section class={styles.land__contact}>
-          <h3 class={styles.landing__title}>전화 상담</h3>
+          <h3 class={styles.landing__title}>고객 응대</h3>
           <div class={styles.contact__description}>
             <p class={styles.contact__call}>고객센터: 031-000-0000</p>
             <p class={styles.contact__call}>대표번호: 010-0000-0000</p>
-            <p class={styles.contact__email}>par10915@naver.com</p>
+            <p class={styles.contact__email}>이메일: par10915@naver.com</p>
             <a href={`tel:${process.env.callNumber}`}>
               {this.getIconDOM.call(this)}
               <span>전화상담</span>
