@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import { generateClassName } from '@/utils';
 import style from './KaKaoMap.module.scss';
@@ -19,7 +19,7 @@ function makeOutListener(infowindow: any) {
   };
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class KaKaoMap extends Node {
   center = [37.277164773495606, 127.10769716943645];
 

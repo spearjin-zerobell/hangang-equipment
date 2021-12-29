@@ -8,7 +8,7 @@
       "interface Props {}",
       "interface State {}",
       "",
-      "/** @jsx dom */",
+      "/** @jsx transJSXtoDOM */",
       "export default class ${TM_FILENAME_BASE} extends Node<Props, State> {",
       "  state = {};",
       "",

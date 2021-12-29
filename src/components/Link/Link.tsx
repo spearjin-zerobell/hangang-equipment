@@ -1,4 +1,4 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import { RouterContext } from '@/GlobalState/GlobalState';
 import style from './Link.module.scss';
@@ -11,7 +11,7 @@ interface Props {
   classFunc?: (isActive: boolean) => string;
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class Link extends Node<Props> {
   onClick(e: Event) {
     const { to, state } = this.props;

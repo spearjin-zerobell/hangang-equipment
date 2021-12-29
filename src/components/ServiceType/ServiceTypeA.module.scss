@@ -59,13 +59,15 @@
     letter-spacing: 1px;
     text-align: center;
   }
+
+  overflow: hidden;
 }
 
 .typeAList__img {
   width: 100%;
   height: calc(50vw - 20px);
   margin-bottom: 5px;
-  border-radius: 12px;
+  border-radius: 0 0 12px 12px;
 }
 
 .typeADescription {

@@ -1,9 +1,8 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Link, Node, Nav } from '@/components';
 import style from './Header.module.scss';
-import logoSrc from './assets/img/logo.png';
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class Header extends Node {
   navButtonId = 'menubutton';
 
@@ -38,6 +37,7 @@ export default class Header extends Node {
             aria-expanded="false"
             id="menubutton"
           >
+            <span class="a11yHidden">메뉴 버튼</span>
             <span role="presentation"></span>
           </div>
         </div>

@@ -1,8 +1,10 @@
 require('dotenv').config();
-const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const __ROOT = process.cwd();
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const postCssLoader = {
   loader: 'postcss-loader',
@@ -86,6 +88,9 @@ module.exports = {
       '@': path.resolve(__ROOT, 'src'),
     },
   },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: '한강설비',
@@ -93,6 +98,7 @@ module.exports = {
       favicon: './favicon.png',
       kakaoAPIKey: process.env.kakaoAPIKey,
     }),
-    new Dotenv()
+    new Dotenv(),
+    new BundleAnalyzerPlugin(),
   ],
 };

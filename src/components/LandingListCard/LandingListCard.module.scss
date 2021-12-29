@@ -11,10 +11,14 @@
   padding: 30px 10px;
   margin: 15px 0;
   cursor: pointer;
-}
+  transition: all 0.2s ease-in-out;
 
-.service:hover {
-  color: red;
+  &:hover {
+    > .service__detail {
+      color: theme.$primary;
+    }
+    transform: scale(1.02);
+  }
 }
 
 .service__icon {

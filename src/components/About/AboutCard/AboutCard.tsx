@@ -1,7 +1,11 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node } from '@/components';
 import style from './AboutCard.module.scss';
-import { generateClassName } from '@/utils';
+import { stringToDOMArray } from '@/utils';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faHandsHelping, faUserTie, faTools } from '@fortawesome/free-solid-svg-icons';
+import { IconLookup } from '@fortawesome/fontawesome-common-types';
+
 interface Props {
   title: string;
   description: string;
@@ -9,14 +13,38 @@ interface Props {
   iconTitle: string;
 }
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 export default class AboutCard extends Node<Props> {
+  getIconArray() {
+    const { iconClassName, iconTitle } = this.props;
+    let targetIcon;
+
+    switch (iconClassName) {
+      case 'hands-helping':
+        targetIcon = faHandsHelping;
+        break;
+      case 'user-tie':
+        targetIcon = faUserTie;
+        break;
+      case 'tools':
+        targetIcon = faTools;
+        break;
+    }
+
+    const iconTemplete = icon(targetIcon as IconLookup, {
+      transform: { size: 33 },
+      title: iconTitle,
+    }).html;
+
+    return stringToDOMArray(iconTemplete[0]);
+  }
+
   template() {
-    const { title, description, iconClassName, iconTitle } = this.props;
+    const { title, description } = this.props;
 
     return (
       <li class={style.aboutCard}>
-        <i class={generateClassName(`fas ${iconClassName} fa-3x`, style.iconShadow)} title={iconTitle}></i>
+        {this.getIconArray.call(this)}
         <h4>{title}</h4>
         <p>{description}</p>
       </li>

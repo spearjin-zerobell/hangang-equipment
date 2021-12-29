@@ -1,7 +1,7 @@
-import { dom } from './utils/babel';
+import { transJSXtoDOM } from './utils/babel';
 import App from '@/App/App';
 
 const $root = document.getElementById('root');
 
-/** @jsx dom */
+/** @jsx transJSXtoDOM */
 $root.appendChild(<App />);

@@ -5,7 +5,7 @@ interface CssExports {
   'contact__call': string;
   'contact__description': string;
   'contact__email': string;
-  'contact__img': string;
+  'contact__text': string;
   'introudct__description': string;
   'introudct__title': string;
   'land': string;

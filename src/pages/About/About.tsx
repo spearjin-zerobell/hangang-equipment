@@ -1,9 +1,11 @@
-import { dom } from '@/utils/babel';
+import { transJSXtoDOM } from '@/utils/babel';
 import { Node, AboutCard, ProfileCard, Title } from '@/components';
 import style from './About.module.scss';
 import data from './data';
 import { generateClassName } from '@/utils';
-/** @jsx dom */
+import profileImgSrc from './profileImage.webp';
+
+/** @jsx transJSXtoDOM */
 export default class About extends Node<unknown, { type: boolean }> {
   template() {
     return (
@@ -25,11 +27,7 @@ export default class About extends Node<unknown, { type: boolean }> {
         <section class={style.section}>
           <h3>직원 소개</h3>
           <ul>
-            <ProfileCard
-              imgSrc="https://www.taycor.com/wp-content/uploads/img-Michael-Hong-v1.jpg"
-              name="김영종"
-              position="대표"
-            />
+            <ProfileCard imgSrc={profileImgSrc} name="김영종" position="대표" />
           </ul>
         </section>
       </main>
